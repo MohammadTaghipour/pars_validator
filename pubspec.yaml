@@ -1,7 +1,7 @@
 name: pars_validator
 description: "ParsValidator is a robust and lightweight validation library designed specifically for Persian-speaking developers building Flutter applications. It provides a suite of utilities and tools to validate Persian-specific data formats, including national codes, phone numbers, Shamsi dates, bank card numbers, and more."
-version: 0.0.1
-homepage:
+version: 0.1.0
+homepage: https://github.com/MohammadTaghipour/pars_validator
 
 environment:
   sdk: ^3.5.3
