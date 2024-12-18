@@ -11,6 +11,12 @@
 - Generate a random valid Iranian National ID
 - Get the issuance location of a National ID
 
+#### Bank utilities:
+
+- Validate credit card number
+- Format credit card number
+- Validate IBAN (Shaba)
+
 
 ## ⚙ Platform Support
 
@@ -24,7 +30,7 @@ To use this package, add it to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  pars_validator: ^0.1.0
+  pars_validator: ^0.2.0
 ```
 
 Then, run the following command to fetch the package:
@@ -52,6 +58,19 @@ String natId = NationalID.generateRandomID(); // 0714265411
 
 // get the issuance location of a National ID
 String? issuance = NationalID.getIssuance("1642459372"); // سراب
+```
+
+### Bank
+
+```dart
+// check card number validation
+bool isValid = Banker.isCardNumberValid('1234567812345670'); // false
+
+// format a card number
+String formatted = Banker.formatCardNumber('1234567812345670'); // '1234 5678 1234 5670'
+
+// check IBAN (Shaba) validation
+bool isValid = Banker.isIBANValid('IR820540102680020817909007'); // true
 ```
 
 ## 🤝 Contributing
