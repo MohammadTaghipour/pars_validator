@@ -1,4 +1,18 @@
+/// A utility class for validating and formatting banking-related information.
+///
+/// The `Banker` class provides methods to validate credit card numbers,
+/// format them for readability, and validate IBAN (International Bank Account Number).
 class Banker {
+  /// Validates a 16-digit credit card number using the Luhn algorithm.
+  ///
+  /// Returns `true` if the card number is valid, otherwise `false`.
+  ///
+  /// Example:
+  /// ```dart
+  /// bool isValid = Banker.isCardNumberValid('1234567812345670'); // true or false
+  /// ```
+  ///
+  /// - [cardNumber]: The credit card number to validate.
   static bool isCardNumberValid(String cardNumber) {
     if (cardNumber.length != 16 || !RegExp(r'^\d{16}$').hasMatch(cardNumber)) {
       return false;
@@ -18,15 +32,24 @@ class Banker {
       }
       sum += result;
     }
-    if (sum % 10 == 0) {
-      return true;
-    } else {
-      return false;
-    }
+    return sum % 10 == 0;
   }
 
-  static String formatCardNumber(
-    String cardNumber, {
+  /// Formats a valid credit card number into readable groups.
+  ///
+  /// Divides the card number into groups of a specified size, separated by
+  /// a custom splitter string. Throws an [ArgumentError] if the card number
+  /// is invalid or the group size is not greater than 0.
+  ///
+  /// Example:
+  /// ```dart
+  /// String formatted = Banker.formatCardNumber('1234567812345670'); // '1234 5678 1234 5670'
+  /// ```
+  ///
+  /// - [cardNumber]: The credit card number to format.
+  /// - [splitter]: The string used to separate groups (default is a space `' '`).
+  /// - [groupSize]: The number of digits in each group (default is 4).
+  static String formatCardNumber(String cardNumber, {
     String splitter = ' ',
     int groupSize = 4,
   }) {
@@ -50,6 +73,16 @@ class Banker {
     return parts.join(splitter);
   }
 
+  /// Validates an IBAN (International Bank Account Number).
+  ///
+  /// Returns `true` if the IBAN is valid, otherwise `false`.
+  ///
+  /// Example:
+  /// ```dart
+  /// bool isValid = Banker.isIBANValid('IR820540102680020817909007');
+  /// ```
+  ///
+  /// - [iban]: The IBAN string to validate.
   static bool isIBANValid(String iban) {
     if (iban.length != 26 || !RegExp(r'^[A-Z0-9]+$').hasMatch(iban)) {
       return false;
