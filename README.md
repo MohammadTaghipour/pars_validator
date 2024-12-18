@@ -1,39 +1,71 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+![](https://github.com/MohammadTaghipour/pars_validator/blob/master/img/logo.png)
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
+# **ParsValidator**
+**ParsValidator** is a robust and lightweight validation library designed specifically for Persian-speaking developers building Flutter applications. It provides a suite of utilities and tools to validate Persian-specific data formats, including national codes, phone numbers, Shamsi dates, bank card numbers, and more.
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+## ✨ Features
 
-## Features
+#### National ID utilities:
+- Validate an Iranian National ID
+- Generate a random valid Iranian National ID
+- Get the issuance location of a National ID
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
 
-## Getting started
+## ⚙ Platform Support
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+| 📱 Android | 🍎 iOS | 🍏 MacOS | 🌐 Web | 🐧 Linux | 💻 Windows |
+|:----------:|:------:|:--------:|:------:|:--------:|:----------:|
+|     ✅      |   ✅    |    ✅     |   ✅    |    ✅     |     ✅      |
 
-## Usage
+## 📦 Installation
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+To use this package, add it to your `pubspec.yaml` file:
 
-```dart
-const like = 'sample';
+```yaml
+dependencies:
+  pars_validator: ^0.1.0
 ```
 
-## Additional information
+Then, run the following command to fetch the package:
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+```bash
+flutter pub get
+```
+
+Import the package in your project:
+
+```dart
+import 'package:pars_validator/pars_validator.dart';
+```
+
+
+## 📚 Usage
+
+### National ID
+```dart
+// check national id validation
+bool isValid = NationalID.isNationalIDValid("1234567890"); // false
+
+// generate a random valid national id
+String natId = NationalID.generateRandomID(); // 0714265411
+
+// get the issuance location of a National ID
+String? issuance = NationalID.getIssuance("1642459372"); // سراب
+```
+
+## 🤝 Contributing
+
+Contributions are welcome! If you'd like to contribute, feel free to open a pull request or submit
+an issue.
+
+## 🛡️ License
+
+This project is licensed under the [MIT License](https://mit-license.org/).
+
+## 📧 Contact
+
+For questions, feedback, or support, please reach out:
+
+- **Developer**: Mohammad Taghipour
+- **Email**: taghipourmohammad7@gmail.com
