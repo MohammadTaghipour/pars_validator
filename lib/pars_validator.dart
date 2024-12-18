@@ -1,4 +1,5 @@
 library pars_validator;
 
-export 'src/banker.dart';
-export 'src/national_id.dart';
+export 'src/extensions.dart';
+export 'src/validators/banker.dart';
+export 'src/validators/national_id.dart';
