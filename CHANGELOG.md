@@ -1,3 +1,9 @@
+# 0.3.0
+
+Improve bank utilities
+
+- Get bank name by card number
+
 # 0.2.0
 
 Setup bank utilities

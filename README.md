@@ -30,7 +30,7 @@ To use this package, add it to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  pars_validator: ^0.2.0
+  pars_validator: ^0.3.0
 ```
 
 Then, run the following command to fetch the package:
