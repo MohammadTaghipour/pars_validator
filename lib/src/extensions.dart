@@ -106,4 +106,19 @@ extension StringValidation on String {
   bool isIBANValid() {
     return Banker.isIBANValid(this);
   }
+
+  /// Retrieves the bank name associated with the given card number.
+  ///
+  /// If a match is found, the corresponding
+  /// bank name is returned; otherwise, `null` is returned.
+  ///
+  /// Example:
+  /// ```dart
+  /// String? bankName = '6274129005473742'.getBankNameByCardNumber(); // 'اقتصاد نوین'
+  /// ```
+  ///
+  /// Returns the bank name as a `String`, or `null` if the card number is invalid.
+  String? getBankNameByCardNumber() {
+    return Banker.getBankNameByCardNumber(this);
+  }
 }
