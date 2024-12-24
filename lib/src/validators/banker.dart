@@ -1,3 +1,7 @@
+import 'package:flutter/material.dart';
+import 'package:pars_validator/src/models/bank.dart';
+import 'package:pars_validator/src/widgets/widgets.dart';
+
 /// A utility class for validating and formatting banking-related information.
 ///
 /// The `Banker` class provides methods to validate credit card numbers,
@@ -50,7 +54,12 @@ class Banker {
   static String? getBankNameByCardNumber(String cardNumber) {
     if (isCardNumberValid(cardNumber)) {
       String bin = cardNumber.substring(0, 6);
-      return _bankByCard[bin];
+      Bank? bank = _banks.firstWhere(
+          (element) => element!.cardPrefixes.contains(bin),
+          orElse: () => null);
+      if (bank != null) {
+        return bank.name;
+      }
     }
     return null;
   }
@@ -75,11 +84,11 @@ class Banker {
     int groupSize = 4,
   }) {
     if (!isCardNumberValid(cardNumber)) {
-      throw ArgumentError("Card number is not valid.");
+      throw ArgumentError('Card number is not valid.');
     }
 
     if (groupSize <= 0) {
-      throw ArgumentError("Group size must be greater than 0.");
+      throw ArgumentError('Group size must be greater than 0.');
     }
 
     List<String> parts = [];
@@ -119,47 +128,109 @@ class Banker {
     BigInt ibanValue = BigInt.parse(numericIban);
     return ibanValue % BigInt.from(97) == BigInt.one;
   }
+
+  /// Returns a Flutter widget representing the bank's icon based on the card number.
+  ///
+  /// This method retrieves the icon widget
+  /// associated with the bank, based on the card number. The size of the icon
+  /// can be customized using the [size] parameter.
+  ///
+  /// Example:
+  /// ```dart
+  /// Widget? icon = Banker.getIcon('6274129005473742', size: 32);
+  /// ```
+  ///
+  /// - [size]: The size of the icon, default is 24.
+  /// Returns a `Widget` representing the bank's icon if the card number is valid
+  /// and the bank is recognized; otherwise, returns `null`.
+  static Widget? getIcon(String cardNumber, {double size = 24}) {
+    String? bankName = getBankNameByCardNumber(cardNumber);
+    if (bankName != null) {
+      Bank? bank = _banks.firstWhere((element) => element!.name == bankName,
+          orElse: () => null);
+      if (bank != null) {
+        return BankIcon(
+          bank: bank,
+          size: size,
+        );
+      }
+    }
+    return null;
+  }
 }
 
-final Map<String, String> _bankByCard = {
-  "636795": "مرکزی",
-  "603799": "ملی",
-  "610433": "ملت",
-  "991975": "ملت",
-  "628023": "مسکن",
-  "603769": "صادرات",
-  "627648": "توسعه صادرات",
-  "207177": "توسعه صادرات",
-  "589210": "سپه",
-  "627353": "تجارت",
-  "603770": "کشاورزی",
-  "639217": "کشاورزی",
-  "589463": "رفاه کارگران",
-  "636214": "آینده",
-  "621986": "سامان",
-  "639607": "سرمایه",
-  "639346": "سینا",
-  "505416": "گردشگری",
-  "502938": "دی",
-  "502806": "شهر",
-  "627961": "صنعت و معدن",
-  "505785": "ایران زمین",
-  "639347": "پاسارگاد",
-  "502229": "پاسارگاد",
-  "622106": "پارسیان",
-  "639194": "پارسیان",
-  "627884": "پارسیان",
-  "627412": "اقتصاد نوین",
-  "639599": "قوامین",
-  "627381": "انصار",
-  "627760": "پست بانک ایران",
-  "502908": "توسعه تعاون",
-  "504172": "رسالت",
-  "627488": "کارآفرین",
-  "502910": "کارآفرین",
-  "639370": "مهر اقتصاد",
-  "636949": "حمکت ایرانیان",
-  "606373": "موسسه قرض الحسنه مهر ایران",
-  "628157": "موسسه اعتباری توسعه",
-  "505801": "موسسه اعتباری کوثر",
-};
+final List<Bank?> _banks = [
+  Bank(name: 'مرکزی', cardPrefixes: ['636795'], iconPath: 'markazi.svg'),
+  Bank(name: 'ملی', cardPrefixes: ['603799'], iconPath: 'melli.svg'),
+  Bank(name: 'ملت', cardPrefixes: ['610433', '991975'], iconPath: 'mellat.svg'),
+  Bank(name: 'مسکن', cardPrefixes: ['628023'], iconPath: 'maskan.svg'),
+  Bank(name: 'صادرات', cardPrefixes: ['603769'], iconPath: 'saderat.svg'),
+  Bank(
+      name: 'توسعه صادرات',
+      cardPrefixes: ['627648', '207177'],
+      iconPath: 'tosee_saderat.svg'),
+  Bank(name: 'سپه', cardPrefixes: ['589210'], iconPath: 'sepah.svg'),
+  Bank(name: 'تجارت', cardPrefixes: ['627353'], iconPath: 'tejarat.svg'),
+  Bank(
+      name: 'کشاورزی',
+      cardPrefixes: ['603770', '639217'],
+      iconPath: 'keshavarzi.svg'),
+  Bank(name: 'رفاه کارگران', cardPrefixes: ['589463'], iconPath: 'refah.svg'),
+  Bank(name: 'آینده', cardPrefixes: ['636214'], iconPath: 'ayandeh.svg'),
+  Bank(name: 'سامان', cardPrefixes: ['621986'], iconPath: 'saman.svg'),
+  Bank(name: 'سرمایه', cardPrefixes: ['639607'], iconPath: 'sarmayeh.svg'),
+  Bank(name: 'سینا', cardPrefixes: ['639346'], iconPath: 'sina.svg'),
+  Bank(name: 'گردشگری', cardPrefixes: ['505416'], iconPath: 'gardeshgari.svg'),
+  Bank(name: 'دی', cardPrefixes: ['502938'], iconPath: 'dey.svg'),
+  Bank(name: 'شهر', cardPrefixes: ['502806'], iconPath: 'shahr.svg'),
+  Bank(
+      name: 'صنعت و معدن',
+      cardPrefixes: ['627961'],
+      iconPath: 'sanat_madan.svg'),
+  Bank(
+      name: 'ایران زمین', cardPrefixes: ['505785'], iconPath: 'iran_zamin.svg'),
+  Bank(
+      name: 'پاسارگاد',
+      cardPrefixes: ['639347', '502229'],
+      iconPath: 'pasargad.svg'),
+  Bank(
+      name: 'پارسیان',
+      cardPrefixes: ['622106', '639194', '627884'],
+      iconPath: 'parsian.svg'),
+  Bank(
+      name: 'اقتصاد نوین',
+      cardPrefixes: ['627412'],
+      iconPath: 'eghtesad_novin.svg'),
+  Bank(name: 'قوامین', cardPrefixes: ['639599'], iconPath: 'ghavamin.svg'),
+  Bank(name: 'انصار', cardPrefixes: ['627381'], iconPath: 'ansar.svg'),
+  Bank(
+      name: 'پست بانک ایران',
+      cardPrefixes: ['627760'],
+      iconPath: 'postbank.svg'),
+  Bank(
+      name: 'توسعه تعاون',
+      cardPrefixes: ['502908'],
+      iconPath: 'tosee_taavon.svg'),
+  Bank(name: 'رسالت', cardPrefixes: ['504172'], iconPath: 'resalat.svg'),
+  Bank(
+      name: 'کارآفرین',
+      cardPrefixes: ['627488', '502910'],
+      iconPath: 'karafarin.svg'),
+  Bank(
+      name: 'مهر اقتصاد',
+      cardPrefixes: ['639370'],
+      iconPath: 'mehr_eghtesad.svg'),
+  Bank(name: 'حمکت ایرانیان', cardPrefixes: ['636949'], iconPath: 'hekmat.svg'),
+  Bank(
+      name: 'موسسه قرض الحسنه مهر ایران',
+      cardPrefixes: ['606373'],
+      iconPath: 'mehr_iran.svg'),
+  Bank(
+      name: 'موسسه اعتباری توسعه',
+      cardPrefixes: ['628157'],
+      iconPath: 'tosee.svg'),
+  Bank(
+      name: 'موسسه اعتباری کوثر',
+      cardPrefixes: ['505801'],
+      iconPath: 'kosar.svg'),
+];

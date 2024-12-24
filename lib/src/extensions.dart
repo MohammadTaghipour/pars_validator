@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:pars_validator/pars_validator.dart';
 
 /// Extension methods for adding validation and formatting utilities to `String`.
@@ -120,5 +121,23 @@ extension StringValidation on String {
   /// Returns the bank name as a `String`, or `null` if the card number is invalid.
   String? getBankNameByCardNumber() {
     return Banker.getBankNameByCardNumber(this);
+  }
+
+  /// Returns a Flutter widget representing the bank's icon based on the card number.
+  ///
+  /// This method retrieves the icon widget
+  /// associated with the bank, based on the card number. The size of the icon
+  /// can be customized using the [size] parameter.
+  ///
+  /// Example:
+  /// ```dart
+  /// Widget? icon = '6274129005473742'.getIconByCardNumber(size: 32);
+  /// ```
+  ///
+  /// - [size]: The size of the icon, default is 24.
+  /// Returns a `Widget` representing the bank's icon if the card number is valid
+  /// and the bank is recognized; otherwise, returns `null`.
+  Widget? getIconByCardNumber({double size = 24}) {
+    return Banker.getIcon(this, size: size);
   }
 }

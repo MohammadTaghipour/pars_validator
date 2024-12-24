@@ -5,3 +5,13 @@ homepage: https://github.com/MohammadTaghipour/pars_validator
 
 environment:
   sdk: ^3.5.3
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_svg: ^2.0.16
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/icons/
