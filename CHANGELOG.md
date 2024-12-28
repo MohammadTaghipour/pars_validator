@@ -1,3 +1,9 @@
+# 0.3.1
+
+Bank Icon by card number
+
+- Get the bank icon by card number
+
 # 0.3.0
 
 Improve bank utilities

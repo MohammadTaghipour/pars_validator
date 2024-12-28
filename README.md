@@ -16,6 +16,7 @@
 - Validate credit card number
 - Format credit card number
 - Validate IBAN (Shaba)
+- Get the name or icon of a card number
 
 
 ## ⚙ Platform Support
@@ -30,7 +31,7 @@ To use this package, add it to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  pars_validator: ^0.3.0
+  pars_validator: ^0.3.1
 ```
 
 Then, run the following command to fetch the package:
@@ -71,6 +72,27 @@ String formatted = Banker.formatCardNumber('1234567812345670'); // '1234 5678 12
 
 // check IBAN (Shaba) validation
 bool isValid = Banker.isIBANValid('IR820540102680020817909007'); // true
+
+// get the bank name of a card number
+String? bankName = Banker.getBankNameByCardNumber('6274129005473742'); // اقتصاد نوین
+
+// get the bank icon of a card number
+Widget? bankIcon = Banker.getIcon('6274129005473742'); // svg icon of Eghtesad Novin bank
+```
+
+### Also with Extensions
+
+```dart
+// check national id validation
+bool isValid = '1234567890'.isNationalIDValid(); // false
+
+// get the issuance location of a National ID
+String? issuance = '1642459372'.getIssuanceOfNationalID(); // سراب
+
+// check IBAN (Shaba) validation
+bool isValid = 'IR820540102680020817909007'.isIBANValid(); // true
+
+// and much more...
 ```
 
 ## 🤝 Contributing
