@@ -38,16 +38,14 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body:  SizedBox(
+      body: SizedBox(
         width: double.infinity,
         height: double.infinity,
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.end,
-            children: <Widget>[
-              '6274129005473742'.getIconByCardNumber()!
-            ],
+            children: <Widget>['6274129005473742'.getIconByCardNumber()!],
           ),
         ),
       ),
