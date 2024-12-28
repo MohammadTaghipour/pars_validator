@@ -22,6 +22,7 @@
 #### ☎ 📱 Telephone & Mobile number utilities:
 
 - Validate landline and mobile number formats
+- Get the province of a landline number
 
 ## ⚙ Platform Support
 
@@ -92,6 +93,8 @@ bool isValid = Phone.isMobileNumberValid('+98 912 345 6789'); // true
 
 // check landline number validation
 bool isValid = Phone.isLandlineNumberValid('021 1234 5678'); // true
+
+String? landlineProvince = Phone.getLandlineNumberProvince('0211234567890'); // 'تهران'
 ```
 
 ### 🛠 Also with Extensions

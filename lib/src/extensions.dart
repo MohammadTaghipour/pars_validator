@@ -145,14 +145,11 @@ extension StringValidation on String {
   ///
   /// ### Example:
   /// ```dart
-  /// bool isValid = '+98 912 345 6789'.isMobileNumberValid();
-  /// print(isValid); // true
+  /// bool isValid = '+98 912 345 6789'.isMobileNumberValid(); // true
   ///
-  /// isValid = '09123456789'.isMobileNumberValid();
-  /// print(isValid); // true
+  /// isValid = '09123456789'.isMobileNumberValid(); // true
   ///
-  /// isValid = '12345'.isMobileNumberValid();
-  /// print(isValid); // false
+  /// isValid = '12345'.isMobileNumberValid(); // false
   /// ```
   ///
   /// ### Returns:
@@ -166,14 +163,11 @@ extension StringValidation on String {
   ///
   /// ### Example:
   /// ```dart
-  /// bool isValid = Phone.isLandlineNumberValid('+98 21 1234 5678');
-  /// print(isValid); // true
+  /// bool isValid = '+98 21 1234 5678'.isLandlineNumberValid(); // true
   ///
-  /// isValid = Phone.isLandlineNumberValid('02112345678');
-  /// print(isValid); // true
+  /// isValid = '02112345678'.isLandlineNumberValid(); // true
   ///
-  /// isValid = Phone.isLandlineNumberValid('12345');
-  /// print(isValid); // false
+  /// isValid = '12345'.isLandlineNumberValid(); // false
   /// ```
   ///
   /// ### Returns:
@@ -181,5 +175,24 @@ extension StringValidation on String {
   /// - `false` otherwise.
   bool isLandlineNumberValid() {
     return Phone.isLandlineNumberValid(this);
+  }
+
+  /// Retrieves the province name associated with a valid Iranian landline number.
+  ///
+  /// ### Example:
+  /// ```dart
+  /// String? province = '02112345678'.getLandlineNumberProvince(); // 'تهران'
+  ///
+  /// province = '09123456789'.getLandlineNumberProvince(); // null
+  /// ```
+  ///
+  /// ### Parameters:
+  /// - [landLineNumber]: The landline number to retrieve the province for. The number should be in a valid format.
+  ///
+  /// ### Returns:
+  /// - The name of the province if the landline number is valid.
+  /// - `null` if the number is invalid or does not match any province.
+  String? getLandlineNumberProvince() {
+    return Phone.getLandlineNumberProvince(this);
   }
 }
