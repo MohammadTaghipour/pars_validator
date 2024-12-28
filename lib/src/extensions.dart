@@ -140,4 +140,25 @@ extension StringValidation on String {
   Widget? getIconByCardNumber({double size = 24}) {
     return Banker.getIcon(this, size: size);
   }
+
+  /// Validates whether a given mobile phone number is in the correct format for Iranian mobile numbers.
+  ///
+  /// ### Example:
+  /// ```dart
+  /// bool isValid = '+98 912 345 6789'.isMobileNumberValid();
+  /// print(isValid); // true
+  ///
+  /// isValid = '09123456789'.isMobileNumberValid();
+  /// print(isValid); // true
+  ///
+  /// isValid = '12345'.isMobileNumberValid();
+  /// print(isValid); // false
+  /// ```
+  ///
+  /// ### Returns:
+  /// - `true` if the phone number is valid and matches the Iranian mobile number format.
+  /// - `false` otherwise.
+  bool isMobileNumberValid() {
+    return Phone.isMobileNumberValid(this);
+  }
 }
