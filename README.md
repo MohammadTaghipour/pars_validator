@@ -94,6 +94,7 @@ bool isValid = Phone.isMobileNumberValid('+98 912 345 6789'); // true
 // check landline number validation
 bool isValid = Phone.isLandlineNumberValid('021 1234 5678'); // true
 
+// get the province name of a landline number
 String? landlineProvince = Phone.getLandlineNumberProvince('0211234567890'); // 'تهران'
 ```
 
