@@ -161,4 +161,25 @@ extension StringValidation on String {
   bool isMobileNumberValid() {
     return Phone.isMobileNumberValid(this);
   }
+
+  /// Validates whether a given phone number is in the correct format for Iranian landline numbers.
+  ///
+  /// ### Example:
+  /// ```dart
+  /// bool isValid = Phone.isLandlineNumberValid('+98 21 1234 5678');
+  /// print(isValid); // true
+  ///
+  /// isValid = Phone.isLandlineNumberValid('02112345678');
+  /// print(isValid); // true
+  ///
+  /// isValid = Phone.isLandlineNumberValid('12345');
+  /// print(isValid); // false
+  /// ```
+  ///
+  /// ### Returns:
+  /// - `true` if the phone number is valid and matches the Iranian landline number format.
+  /// - `false` otherwise.
+  bool isLandlineNumberValid() {
+    return Phone.isLandlineNumberValid(this);
+  }
 }
