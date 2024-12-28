@@ -6,12 +6,12 @@
 
 ## ✨ Features
 
-#### National ID utilities:
+#### 🌏 National ID utilities:
 - Validate an Iranian National ID
 - Generate a random valid Iranian National ID
 - Get the issuance location of a National ID
 
-#### Bank utilities:
+#### 🏦 Bank utilities:
 
 - Validate credit card number
 - Format credit card number
@@ -49,7 +49,7 @@ import 'package:pars_validator/pars_validator.dart';
 
 ## 📚 Usage
 
-### National ID
+### 🌏 National ID
 ```dart
 // check national id validation
 bool isValid = NationalID.isNationalIDValid("1234567890"); // false
@@ -61,7 +61,7 @@ String natId = NationalID.generateRandomID(); // 0714265411
 String? issuance = NationalID.getIssuance("1642459372"); // سراب
 ```
 
-### Bank
+### 🏦 Bank
 
 ```dart
 // check card number validation
@@ -80,7 +80,7 @@ String? bankName = Banker.getBankNameByCardNumber('6274129005473742'); // اقت
 Widget? bankIcon = Banker.getIcon('6274129005473742'); // svg icon of Eghtesad Novin bank
 ```
 
-### Also with Extensions
+### 🛠 Also with Extensions
 
 ```dart
 // check national id validation
