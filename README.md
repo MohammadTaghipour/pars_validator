@@ -96,7 +96,7 @@ bool isValid = Phone.isMobileNumberValid('+98 912 345 6789'); // true
 bool isValid = Phone.isLandlineNumberValid('021 1234 5678'); // true
 
 // get the province name of a landline number
-String? landlineProvince = Phone.getLandlineNumberProvince('0211234567890'); // 'تهران'
+String? landlineProvince = Phone.getLandlineNumberProvince('021 1234 5678'); // 'تهران'
 
 // get the operator of a mobile number
 String? operator = Phone.getMobileOperator('+98 912 345 6789'); // 'همراه اول'
