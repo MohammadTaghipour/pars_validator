@@ -1,4 +1,4 @@
-import 'package:pars_validator/src/models/mobile_operator.dart';
+import 'package:pars_validator/src/models/models.dart';
 
 /// A utility class for validating and processing phone numbers.
 class Phone {
