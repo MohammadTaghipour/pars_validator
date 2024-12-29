@@ -1,3 +1,11 @@
+# 0.4.0
+
+Setup Telephone & Mobile number utilities
+
+- Check mobile and landline number format validation
+- Get landline province name
+- Get mobile operator by number
+
 # 0.3.1
 
 Bank Icon by card number

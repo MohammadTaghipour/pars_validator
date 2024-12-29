@@ -1,6 +1,6 @@
 name: pars_validator
 description: "A lightweight Flutter library for validating Persian-specific data formats like national codes,bank card numbers, phone numbers, Shamsi dates, and more."
-version: 0.3.1
+version: 0.4.0
 homepage: https://github.com/MohammadTaghipour/pars_validator
 
 environment:
