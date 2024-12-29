@@ -1,3 +1,5 @@
+import 'package:pars_validator/src/models/mobile_operator.dart';
+
 /// A utility class for validating and processing phone numbers.
 class Phone {
   /// Validates whether a given mobile phone number is in the correct format for Iranian mobile numbers.
@@ -76,7 +78,135 @@ class Phone {
     }
     return null;
   }
+
+  /// Retrieves the mobile operator name for a valid Iranian mobile number.
+  ///
+  /// ### Example:
+  /// ```dart
+  /// String? operator = Phone.getMobileOperator('+98 912 345 6789'); // همراه اول
+  ///
+  /// operator = Phone.getMobileOperator('09361234567'); // ایرانسل
+  ///
+  /// operator = Phone.getMobileOperator('12345'); // null
+  ///```
+  /// ### Parameters:
+  /// - [mobileNumber]: The mobile number to identify the operator for. The number should be in a valid format.
+  ///
+  /// ### Returns:
+  /// - The name of the mobile operator if the mobile number is valid and matches an operator code.
+  /// - `null` if the number is invalid or does not match any operator.
+  static String? getMobileOperator(String mobileNumber) {
+    if (isMobileNumberValid(mobileNumber)) {
+      mobileNumber = mobileNumber.replaceAll(RegExp(r'\s+'), '');
+      if (mobileNumber.startsWith('+98')) {
+        mobileNumber = '0' + mobileNumber.substring(3);
+      } else if (mobileNumber.startsWith('0098')) {
+        mobileNumber = '0' + mobileNumber.substring(4);
+      }
+      for (var operator in _mobileOperators) {
+        for (var code in operator.numberCode) {
+          if (mobileNumber.startsWith(code)) {
+            return operator.operator;
+          }
+        }
+      }
+    }
+    return null;
+  }
 }
+
+final List<MobileOperator> _mobileOperators = [
+  MobileOperator(
+    operator: 'همراه اول',
+    numberCode: [
+      '0910',
+      '0911',
+      '0912',
+      '0913',
+      '0914',
+      '0915',
+      '0916',
+      '0917',
+      '0918',
+      '0919',
+      '0991',
+      '0990',
+      '0992',
+      '0993',
+    ],
+    iconPath: 'hamrah_avval.svg',
+  ),
+  MobileOperator(
+    operator: 'ایرانسل',
+    numberCode: [
+      '0935',
+      '0901',
+      '0902',
+      '0903',
+      '0930',
+      '0933',
+      '0905',
+      '0936',
+      '0937',
+      '0938',
+      '0939',
+    ],
+    iconPath: 'irancell.svg',
+  ),
+  MobileOperator(
+    operator: 'رایتل',
+    numberCode: [
+      '0920',
+      '0921',
+      '0922',
+    ],
+    iconPath: 'rightel.svg',
+  ),
+  MobileOperator(
+    operator: 'اسپادان',
+    numberCode: [
+      '0931',
+    ],
+    iconPath: 'spadan.svg',
+  ),
+  MobileOperator(
+    operator: 'تله کیش',
+    numberCode: [
+      '0934769',
+      '0934768',
+    ],
+    iconPath: 'telekish.svg',
+  ),
+  MobileOperator(
+    operator: 'سامانتل',
+    numberCode: [
+      '099999',
+      '09999',
+    ],
+    iconPath: 'samantel.svg',
+  ),
+  MobileOperator(
+    operator: 'آپتل',
+    numberCode: [
+      '09991',
+    ],
+    iconPath: 'aptel.svg',
+  ),
+  MobileOperator(
+    operator: 'تالیا',
+    numberCode: [
+      '0932',
+    ],
+    iconPath: 'taliya.svg',
+  ),
+  MobileOperator(
+    operator: 'لوتوس تل',
+    numberCode: [
+      '0999',
+    ],
+    iconPath: 'lotustel.svg',
+  ),
+];
 
 final Map<String, String> _landlineNumberCodes = {
   "041": "آذربایجان شرقی",

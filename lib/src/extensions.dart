@@ -195,4 +195,22 @@ extension StringValidation on String {
   String? getLandlineNumberProvince() {
     return Phone.getLandlineNumberProvince(this);
   }
+
+  /// Retrieves the mobile operator name for a valid Iranian mobile number.
+  ///
+  /// ### Example:
+  /// ```dart
+  /// String? operator = '+98 912 345 6789'.getMobileOperator(); // همراه اول
+  ///
+  /// operator = '09361234567'.getMobileOperator(); // ایرانسل
+  ///
+  /// operator = '12345'.getMobileOperator(); // null
+  ///```
+  ///
+  /// ### Returns:
+  /// - The name of the mobile operator if the mobile number is valid and matches an operator code.
+  /// - `null` if the number is invalid or does not match any operator.
+  String? getMobileNumberOperator() {
+    return Phone.getMobileOperator(this);
+  }
 }
