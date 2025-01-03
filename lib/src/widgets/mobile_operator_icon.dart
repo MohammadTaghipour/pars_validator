@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pars_validator/pars_validator.dart';
 
-class OperatorIcon extends StatelessWidget {
+class MobileOperatorIcon extends StatelessWidget {
   final MobileOperator operator;
   final double size;
 
-  const OperatorIcon({
+  const MobileOperatorIcon({
     super.key,
     required this.operator,
     this.size = 24,

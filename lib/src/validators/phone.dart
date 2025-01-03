@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:pars_validator/src/models/models.dart';
-import 'package:pars_validator/src/widgets/operator_icon.dart';
+import 'package:pars_validator/src/widgets/mobile_operator_icon.dart';
 
 /// A utility class for validating and processing phone numbers.
 class Phone {
@@ -141,7 +141,7 @@ class Phone {
       for (var operator in _mobileOperators) {
         for (var code in operator.numberCode) {
           if (mobileNumber.startsWith(code)) {
-            return OperatorIcon(operator: operator);
+            return MobileOperatorIcon(operator: operator);
           }
         }
       }
