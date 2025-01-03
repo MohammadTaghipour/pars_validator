@@ -99,8 +99,9 @@ bool isValid = Phone.isLandlineNumberValid('021 1234 5678'); // true
 String? landlineProvince = Phone.getLandlineNumberProvince('021 1234 5678'); // 'تهران'
 
 // get the operator of a mobile number
-String? operator = Phone.getMobileOperator('+98 912 345 6789'); // 'همراه اول'
+String? operatorName = Phone.getMobileOperator('+98 912 345 6789'); // 'همراه اول'
 
+// get the operator icon of a mobile number
 Widget? operatorIcon = Phone.getMobileOperatorIcon('+98 912 345 6789'); // Hamrah-Avval icon widget
 ```
 
