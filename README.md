@@ -37,7 +37,7 @@ To use this package, add it to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  pars_validator: ^0.4.0
+  pars_validator: ^0.4.1
 ```
 
 Then, run the following command to fetch the package:
@@ -100,6 +100,8 @@ String? landlineProvince = Phone.getLandlineNumberProvince('021 1234 5678'); // 
 
 // get the operator of a mobile number
 String? operator = Phone.getMobileOperator('+98 912 345 6789'); // 'همراه اول'
+
+Widget? operatorIcon = Phone.getMobileOperatorIcon('+98 912 345 6789'); // Hamrah-Avval icon widget
 ```
 
 ### 🛠 Also with Extensions

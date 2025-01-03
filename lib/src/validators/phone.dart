@@ -1,4 +1,6 @@
+import 'package:flutter/widgets.dart';
 import 'package:pars_validator/src/models/models.dart';
+import 'package:pars_validator/src/widgets/operator_icon.dart';
 
 /// A utility class for validating and processing phone numbers.
 class Phone {
@@ -107,6 +109,39 @@ class Phone {
         for (var code in operator.numberCode) {
           if (mobileNumber.startsWith(code)) {
             return operator.operator;
+          }
+        }
+      }
+    }
+    return null;
+  }
+
+  /// Retrieves the mobile operator icon for a valid Iranian mobile number.
+  ///
+  /// ### Example:
+  /// ```dart
+  /// Widget? operatorIcon = Phone.getMobileOperatorIcon('+98 912 345 6789'); // Hamrah-Avval icon widget
+  ///
+  /// operatorIcon = Phone.getMobileOperatorIcon('12345'); // null
+  ///```
+  /// ### Parameters:
+  /// - [mobileNumber]: The mobile number to identify the operator for. The number should be in a valid format.
+  ///
+  /// ### Returns:
+  /// - The icon of the mobile operator as a widget if the mobile number is valid and matches an operator code.
+  /// - `null` if the number is invalid or does not match any operator.
+  static Widget? getMobileOperatorIcon(String mobileNumber) {
+    if (isMobileNumberValid(mobileNumber)) {
+      mobileNumber = mobileNumber.replaceAll(RegExp(r'\s+'), '');
+      if (mobileNumber.startsWith('+98')) {
+        mobileNumber = '0' + mobileNumber.substring(3);
+      } else if (mobileNumber.startsWith('0098')) {
+        mobileNumber = '0' + mobileNumber.substring(4);
+      }
+      for (var operator in _mobileOperators) {
+        for (var code in operator.numberCode) {
+          if (mobileNumber.startsWith(code)) {
+            return OperatorIcon(operator: operator);
           }
         }
       }

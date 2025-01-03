@@ -213,4 +213,19 @@ extension StringValidation on String {
   String? getMobileNumberOperator() {
     return Phone.getMobileOperator(this);
   }
+
+  /// Retrieves the mobile operator icon for a valid Iranian mobile number.
+  ///
+  /// ### Example:
+  /// ```dart
+  /// Widget? operatorIcon = '+98 912 345 6789'.getMobileOperatorIcon(); // Hamrah-Avval icon widget
+  ///
+  /// operatorIcon = '12345'.getMobileOperatorIcon(); // null
+  ///```
+  /// ### Returns:
+  /// - The icon of the mobile operator as a widget if the mobile number is valid and matches an operator code.
+  /// - `null` if the number is invalid or does not match any operator.
+  Widget? getMobileNumberOperatorIcon() {
+    return Phone.getMobileOperatorIcon(this);
+  }
 }

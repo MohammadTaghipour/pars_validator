@@ -1,3 +1,9 @@
+# 0.4.1
+
+Fix Telephone & Mobile number utilities
+
+- Get mobile operator icon by number as a widget
+
 # 0.4.0
 
 Setup Telephone & Mobile number utilities
@@ -26,9 +32,10 @@ Setup bank utilities
 - Format credit card number
 - Validate IBAN (Shaba)
 
-#  0.1.0
+# 0.1.0
 
 Initial version of the library
+
 - Check national id validation
 - Generate random valid national id
 - Get the issuance location of a National ID.
