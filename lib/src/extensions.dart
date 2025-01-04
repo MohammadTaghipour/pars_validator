@@ -230,4 +230,20 @@ extension StringValidation on String {
   Widget? getMobileNumberOperatorIcon({double size = 24}) {
     return Phone.getMobileOperatorIcon(this, size: size);
   }
+
+  /// Validates whether a given email address conforms to a standard email format.
+  ///
+  /// ### Example:
+  /// ```dart
+  /// bool isValid = 'example@domain.com'.isEmailValid(); // true
+  ///
+  /// isValid = 'invalid-email'.isEmailValid(); // false
+  /// ```
+  ///
+  /// ### Returns:
+  /// - `true` if the email address is valid and matches the standard email format.
+  /// - `false` otherwise.
+  bool isEmailValid() {
+    return Phone.isEmailValid(this);
+  }
 }

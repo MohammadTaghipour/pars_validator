@@ -1,3 +1,9 @@
+# 0.4.3
+
+Improve Phone utilities
+
+- Validate Email address with standard format
+
 # 0.4.2
 
 Bugfix in Mobile number utilities

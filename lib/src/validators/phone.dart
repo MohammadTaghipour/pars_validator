@@ -153,6 +153,27 @@ class Phone {
     }
     return null;
   }
+
+  /// Validates whether a given email address conforms to a standard email format.
+  ///
+  /// ### Example:
+  /// ```dart
+  /// bool isValid = Validator.isEmailValid('example@domain.com'); // true
+  ///
+  /// isValid = Validator.isEmailValid('invalid-email'); // false
+  /// ```
+  ///
+  /// ### Parameters:
+  /// - [email]: The email address to validate as a [String].
+  ///
+  /// ### Returns:
+  /// - `true` if the email address is valid and matches the standard email format.
+  /// - `false` otherwise.
+  static bool isEmailValid(String email) {
+    const emailPattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$';
+    final regex = RegExp(emailPattern);
+    return regex.hasMatch(email);
+  }
 }
 
 final List<MobileOperator> _mobileOperators = [

@@ -1,8 +1,6 @@
-<div align="center">
-    <img height="200" src="https://github.com/MohammadTaghipour/pars_validator/blob/master/img/logo.png" alt="ParsValidator Logo">
-   <h1>ParsValidator</h1>
-</div>
+![](https://github.com/MohammadTaghipour/pars_validator/blob/master/img/logo.png)
 
+# ParsValidator
 **ParsValidator** is a robust and lightweight validation library designed specifically for Persian-speaking developers building Flutter applications. It provides a suite of utilities and tools to validate Persian-specific data formats, including national codes, phone numbers, Shamsi dates, bank card numbers, and more.
 
 ## ✨ Features
@@ -19,11 +17,12 @@
 - Validate IBAN (Shaba)
 - Get the name or icon of a card number
 
-#### ☎ 📱 Telephone & Mobile number utilities:
+#### ☎ 📱 Telephone & Mobile number & Email utilities:
 
 - Validate landline and mobile number formats
 - Get the province of a landline number
 - Get the operator name or icon of a mobile number
+- Validate Email address with standard format
 
 ## ⚙ Platform Support
 
@@ -37,7 +36,7 @@ To use this package, add it to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  pars_validator: ^0.4.2
+  pars_validator: ^0.4.3
 ```
 
 Then, run the following command to fetch the package:
@@ -86,7 +85,7 @@ String? bankName = Banker.getBankNameByCardNumber('6274129005473742'); // اقت
 Widget? bankIcon = Banker.getIcon('6274129005473742'); // svg icon of Eghtesad Novin bank
 ```
 
-### ☎ 📱 Telephone & Mobile number
+### ☎ 📱 Telephone & Mobile number & Email
 
 ```dart
 // check mobile number validation
@@ -103,6 +102,9 @@ String? operatorName = Phone.getMobileOperator('+98 912 345 6789'); // 'همرا
 
 // get the operator icon of a mobile number
 Widget? operatorIcon = Phone.getMobileOperatorIcon('+98 912 345 6789'); // Hamrah-Avval icon widget
+
+// Validate an email address with standard email format
+bool isValid = Phone.isEmailValid('example@domain.com'); // true
 ```
 
 ### 🛠 Also with Extensions
