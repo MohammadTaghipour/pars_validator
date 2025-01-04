@@ -15,7 +15,7 @@ class BankIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SvgPicture.asset(
-      'packages/pars_validator/assets/banks/icons/${bank.iconPath}',
+      'packages/pars_validator/assets/icons/banks/${bank.iconPath}',
       width: size,
       height: size,
       fit: BoxFit.fitWidth,

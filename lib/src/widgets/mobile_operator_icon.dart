@@ -15,7 +15,7 @@ class MobileOperatorIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SvgPicture.asset(
-      'packages/pars_validator/assets/operators/icons/${operator.iconPath}',
+      'packages/pars_validator/assets/icons/operators/${operator.iconPath}',
       width: size,
       height: size,
       fit: BoxFit.fitWidth,

@@ -1,3 +1,9 @@
+# 0.4.2
+
+Bugfix in Mobile number utilities
+
+- Fix not loading svg icons of operators
+
 # 0.4.1
 
 Fix Telephone & Mobile number utilities

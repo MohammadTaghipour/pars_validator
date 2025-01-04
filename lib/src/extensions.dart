@@ -222,10 +222,12 @@ extension StringValidation on String {
   ///
   /// operatorIcon = '12345'.getMobileOperatorIcon(); // null
   ///```
+  ///
+  /// - [size]: The size of the icon, default is 24.
   /// ### Returns:
   /// - The icon of the mobile operator as a widget if the mobile number is valid and matches an operator code.
   /// - `null` if the number is invalid or does not match any operator.
-  Widget? getMobileNumberOperatorIcon() {
-    return Phone.getMobileOperatorIcon(this);
+  Widget? getMobileNumberOperatorIcon({double size = 24}) {
+    return Phone.getMobileOperatorIcon(this, size: size);
   }
 }

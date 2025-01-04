@@ -45,7 +45,10 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.end,
-            children: <Widget>['6274129005473742'.getIconByCardNumber()!],
+            children: <Widget>[
+              '6037701555645008'.getIconByCardNumber()!,
+              '09012332222'.getMobileNumberOperatorIcon(size: 56)!
+            ],
           ),
         ),
       ),
