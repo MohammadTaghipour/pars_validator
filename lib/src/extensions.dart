@@ -246,4 +246,81 @@ extension StringValidation on String {
   bool isEmailValid() {
     return Phone.isEmailValid(this);
   }
+
+  /// Validates whether a given text contains only Persian letters and spaces.
+  ///
+  /// ### Example:
+  /// ```dart
+  /// bool isValid = 'سلام دنیا'.containsOnlyPersianLetters(); // true
+  ///
+  /// isValid = 'سلام 123'.containsOnlyPersianLetters(); // false
+  /// ```
+  ///
+  /// ### Returns:
+  /// - `true` if the text contains only Persian letters and spaces.
+  /// - `false` otherwise.
+  bool containsOnlyPersianLetters() {
+    return General.onlyPersianLetters(this);
+  }
+
+  /// Validates the word count of a given text.
+  ///
+  /// Ensures the word count falls within the specified range.
+  ///
+  /// ### Example:
+  /// ```dart
+  /// bool isValid = 'سلام دنیا'.validateWordCount(1, 3); // true
+  ///
+  /// isValid = 'یک دو سه چهار پنج'.validateWordCount(2, 4); // false
+  /// ```
+  ///
+  /// ### Parameters:
+  /// - [minWords]: The minimum word count.
+  /// - [maxWords]: The maximum word count.
+  ///
+  /// ### Returns:
+  /// - `true` if the word count is within the specified range.
+  /// - `false` otherwise.
+  bool validateWordCount(int minWords, int maxWords) {
+    return General.validateWordCount(this, minWords, maxWords);
+  }
+
+  /// Counts the number of words in a given text.
+  ///
+  /// ### Example:
+  /// ```dart
+  /// int wordCount = 'Hello World!'.length(); // 2
+  /// ```
+  ///
+  /// ### Returns:
+  /// - The number of words in the text.
+  int length() {
+    return General.getWordCount(this);
+  }
+
+  /// Converts a text to Persian format, replacing Arabic characters and English digits.
+  ///
+  /// ### Example:
+  /// ```dart
+  /// String converted = '123 كلمه'.toPersian(); // '۱۲۳ کلمه'
+  /// ```
+  ///
+  /// ### Returns:
+  /// - The converted text with Arabic characters and English digits replaced by their Persian equivalents.
+  String toPersian() {
+    return General.toPersian(this);
+  }
+
+  /// Converts Persian and Arabic digits in a text to English digits.
+  ///
+  /// ### Example:
+  /// ```dart
+  /// String converted = '۱۲۳۴'.withEnglishNumbers(); // '1234'
+  /// ```
+  ///
+  /// ### Returns:
+  /// - The converted text with Persian and Arabic digits replaced by English digits.
+  String withEnglishNumbers() {
+    return General.toEnglishNumbers(this);
+  }
 }

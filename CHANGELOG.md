@@ -1,3 +1,13 @@
+# 0.5.0
+
+Add general text utilities
+
+- Check that a text contains only Persian letters
+- Validate the word count of a given text
+- Count the number of words in a given text
+- Convert a text to Persian format, replacing Arabic characters and English digits
+- Convert Persian and Arabic digits in a text to English digits
+
 # 0.4.3
 
 Improve Phone utilities

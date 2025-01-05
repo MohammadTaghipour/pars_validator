@@ -5,6 +5,14 @@
 
 ## ✨ Features
 
+#### 🌌 General text utilities:
+
+- Check that a text contains only Persian letters
+- Validate the word count of a given text
+- Count the number of words in a given text
+- Convert a text to Persian format, replacing Arabic characters and English digits
+- Convert Persian and Arabic digits in a text to English digits
+
 #### 🌏 National ID utilities:
 - Validate an Iranian National ID
 - Generate a random valid Iranian National ID
@@ -36,7 +44,7 @@ To use this package, add it to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  pars_validator: ^0.4.3
+  pars_validator: ^0.5.0
 ```
 
 Then, run the following command to fetch the package:
@@ -53,6 +61,27 @@ import 'package:pars_validator/pars_validator.dart';
 
 
 ## 📚 Usage
+
+### 🌌 General text utilities:
+
+```dart
+// Check that a text contains only Persian letters
+bool isValid = General.onlyPersianLetters('سلام دنیا'); // true
+
+// Validate the word count of a given text
+bool isValid = General.validateWordCount('سلام دنیا', 1, 3); // true
+
+// Count the number of words in a given text
+int wordCount = General.getWordCount('Hello World!'); // 2
+
+// Convert a text to Persian format, replacing Arabic characters and English digits
+String converted = General.arabicToPersian('اراك'); // اراک
+String converted = General.englishToPersianNumbers('123'); // '۱۲۳'
+String converted = General.toPersian('123 كلمه'); // '۱۲۳ کلمه'
+
+// Convert Persian and Arabic digits in a text to English digits
+String converted = General.toEnglishNumbers('۱۲۳۴'); // '1234'
+```
 
 ### 🌏 National ID
 ```dart
