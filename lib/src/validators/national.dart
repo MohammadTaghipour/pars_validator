@@ -18,7 +18,7 @@ import 'dart:math';
 /// // Get the issuance location of a National ID
 /// String? issuance = NationalIDUtils.getIssuance("1234567891");
 /// ```
-class NationalID {
+class National {
   /// Validates an Iranian National ID.
   ///
   /// Checks the given [nationalCode] for the correct format and

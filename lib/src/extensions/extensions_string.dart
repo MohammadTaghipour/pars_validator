@@ -7,7 +7,7 @@ import 'package:pars_validator/pars_validator.dart';
 /// to validate and format various types of data, including national IDs,
 /// credit card numbers, and IBANs.
 extension StringValidation on String {
-  // NationalID ----------
+  // National ----------
 
   /// Validates an Iranian National ID.
   ///
@@ -22,7 +22,7 @@ extension StringValidation on String {
   /// bool isValid = '1234567891'.isNationalIDValid();
   /// ```
   bool isNationalIDValid() {
-    return NationalID.isNationalIDValid(this);
+    return National.isNationalIDValid(this);
   }
 
   /// Generates a random valid Iranian National ID.
@@ -36,7 +36,7 @@ extension StringValidation on String {
   /// String randomID = ''.generateRandomID();
   /// ```
   String generateRandomNationalID() {
-    return NationalID.generateRandomID();
+    return National.generateRandomID();
   }
 
   /// Retrieves the issuance location of a National ID.
@@ -53,7 +53,7 @@ extension StringValidation on String {
   /// String? issuance = '1234567891'.getIssuanceOfNationalID();
   /// ```
   String? getIssuanceOfNationalID() {
-    return NationalID.getIssuance(this);
+    return National.getIssuance(this);
   }
 
   // Banker ----------

@@ -1,4 +1,4 @@
 export 'banker.dart';
 export 'general.dart';
-export 'national_id.dart';
+export 'national.dart';
 export 'phone.dart';

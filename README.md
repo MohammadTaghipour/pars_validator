@@ -99,13 +99,13 @@ String result = General.separate("123456789", splitter: ',', groupSize: 3); // "
 ### 🌏 National ID
 ```dart
 // check national id validation
-bool isValid = NationalID.isNationalIDValid("1234567890"); // false
+bool isValid = National.isNationalIDValid("1234567890"); // false
 
 // generate a random valid national id
-String natId = NationalID.generateRandomID(); // 0714265411
+String natId = National.generateRandomID(); // 0714265411
 
 // get the issuance location of a National ID
-String? issuance = NationalID.getIssuance("1642459372"); // سراب
+String? issuance = National.getIssuance("1642459372"); // سراب
 ```
 
 ### 🏦 Bank
