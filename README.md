@@ -84,7 +84,10 @@ String converted = General.toEnglishNumbers('۱۲۳۴'); // '1234'
 
 // Convert number to Persian letters
 // result:  'یک صد و بیست و سه میلیون چهار صد و پنجاه و شش هزار هفت صد و هشتاد و نه'
-String result = General.numberToLetters(123456789); 
+String result = General.numberToLetters(123456789);
+
+// Convert number to price
+String price = General.numberToPrice(1234567890); // خروجی: ۱۲ میلیون و ۳۴۵ هزار و ۶۷۸ تومان و ۹ ریال
 ```
 
 ### 🌏 National ID

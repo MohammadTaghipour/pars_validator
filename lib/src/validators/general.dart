@@ -1,3 +1,5 @@
+import 'package:pars_validator/src/extensions/extensions_string.dart';
+
 /// A utility class for text-related operations with a focus on Persian language support.
 class General {
   /// Validates whether a given text contains only Persian letters and spaces.
@@ -254,6 +256,44 @@ class General {
       unitIndex++;
     }
     return result;
+  }
+
+  /// Converts a number representing an amount in Rials into a human-readable Persian format.
+  ///
+  ///
+  /// ### Example:
+  /// ```dart
+  /// String price = General.numberToPrice(1234567890); خروجی: ۱۲ میلیون و ۳۴۵ هزار و ۶۷۸ تومان و ۹ ریال
+  /// ```
+  ///
+  /// ### Parameters:
+  /// - [number]: A string representing a numeric value in Rials.
+  ///
+  /// ### Returns:
+  /// - A formatted string representing the amount in Tomans and Rials, converted to Persian characters.
+  ///
+  /// ### Notes:
+  /// - The method assumes the input string is a valid numeric value in Rials.
+  /// - Uses `.toPersian()` to convert the output to Persian numerals.
+  static String numberToPrice(int numbers) {
+    int tomans = numbers ~/ 10;
+    int remainingRial = numbers % 10;
+
+    final billions = tomans ~/ 1000000000;
+    final millions = (tomans % 1000000000) ~/ 1000000;
+    final thousands = (tomans % 1000000) ~/ 1000;
+    final units = tomans % 1000;
+
+    List<String> parts = [];
+    if (billions > 0) parts.add('$billions میلیارد');
+    if (millions > 0) parts.add('$millions میلیون');
+    if (thousands > 0) parts.add('$thousands هزار');
+    if (units > 0) parts.add('$units');
+    if (remainingRial > 0) {
+      return '${parts.join(" و ")} تومان و $remainingRial ریال'.toPersian();
+    } else {
+      return '${parts.join(" و ")} تومان'.toPersian();
+    }
   }
 }
 

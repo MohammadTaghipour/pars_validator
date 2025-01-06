@@ -340,4 +340,18 @@ extension StringValidation on String {
   String numberToLetters() {
     return General.numberToLetters(int.parse(this.trim()));
   }
+
+  /// Converts a number representing an amount in Rials into a human-readable Persian format.
+  ///
+  ///
+  /// ### Example:
+  /// ```dart
+  /// String price = '1234567890'.numberToPrice(); // خروجی: ۱۲ میلیون و ۳۴۵ هزار و ۶۷۸ تومان و ۹ ریال
+  /// ```
+  ///
+  /// ### Returns:
+  /// - A formatted string representing the amount in Tomans and Rials, converted to Persian characters.
+  String numberToPrice() {
+    return General.numberToPrice(int.parse(this.trim()));
+  }
 }
