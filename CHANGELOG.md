@@ -3,6 +3,7 @@
 Improve general text utilities
 
 - Convert number to Persian letters
+- Convert number to Persian price in Tomans
 
 # 0.5.0
 

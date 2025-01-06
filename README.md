@@ -12,6 +12,8 @@
 - Count the number of words in a given text
 - Convert a text to Persian format, replacing Arabic characters and English digits
 - Convert Persian and Arabic digits in a text to English digits
+- Convert number to Persian letters
+- Convert number to Persian price in Tomans
 
 #### 🌏 National ID utilities:
 - Validate an Iranian National ID
