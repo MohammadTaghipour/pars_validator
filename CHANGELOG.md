@@ -1,3 +1,9 @@
+# 0.5.1
+
+Improve general text utilities
+
+- Convert number to Persian letters
+
 # 0.5.0
 
 Add general text utilities

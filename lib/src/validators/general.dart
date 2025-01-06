@@ -178,4 +178,133 @@ class General {
         .map((char) => arabicToPersianMap[char] ?? char)
         .join('');
   }
+
+  static String _convertThreeDigits(int number) {
+    if (number == 0) return "";
+
+    int hundreds = number ~/ 100;
+    int remainder = number % 100;
+    int tens = remainder ~/ 10;
+    int ones = remainder % 10;
+
+    String result = "";
+
+    if (hundreds > 0) {
+      result += _hundreds[hundreds];
+    }
+
+    if (remainder >= 10 && remainder <= 19) {
+      if (result.isNotEmpty) result += " و ";
+      result += _teens[remainder - 10];
+    } else {
+      if (tens > 0) {
+        if (result.isNotEmpty) result += " و ";
+        result += _tens[tens];
+      }
+
+      if (ones > 0) {
+        if (result.isNotEmpty) result += " و ";
+        result += _ones[ones];
+      }
+    }
+
+    return result;
+  }
+
+  /// Converts an integer number between 0 to 999,999,999,999 into its corresponding Persian words representation.
+  ///
+  /// ### Example:
+  /// ```dart
+  /// String result = General.numberToLetters(123456789);
+  /// print(result); // 'یک صد و بیست و سه میلیون چهار صد و پنجاه و شش هزار هفت صد و هشتاد و نه'
+  ///
+  /// result = General.numberToLetters(1000);
+  /// print(result); // 'یک هزار'
+  /// ```
+  ///
+  /// ### Parameters:
+  /// - [number]: The integer number to convert into words.
+  ///
+  /// ### Returns:
+  /// - The Persian word representation of the number.
+  static String numberToLetters(int number) {
+    if (number == 0) return "صفر";
+
+    List<String> units = ["", "هزار", "میلیون", "میلیارد"];
+    int unitIndex = 0;
+    String result = "";
+
+    while (number > 0) {
+      int chunk = number % 1000;
+      number ~/= 1000;
+
+      if (chunk > 0) {
+        String chunkText = _convertThreeDigits(chunk);
+        if (unitIndex > 0) {
+          chunkText += " " + units[unitIndex];
+        }
+
+        if (result.isNotEmpty) {
+          result = chunkText + " و " + result;
+        } else {
+          result = chunkText;
+        }
+      }
+
+      unitIndex++;
+    }
+    return result;
+  }
 }
+
+const List<String> _ones = [
+  "",
+  "یک",
+  "دو",
+  "سه",
+  "چهار",
+  "پنج",
+  "شش",
+  "هفت",
+  "هشت",
+  "نه"
+];
+
+const List<String> _teens = [
+  "ده",
+  "یازده",
+  "دوازده",
+  "سیزده",
+  "چهارده",
+  "پانزده",
+  "شانزده",
+  "هفده",
+  "هجده",
+  "نوزده"
+];
+
+const List<String> _tens = [
+  "",
+  "ده",
+  "بیست",
+  "سی",
+  "چهل",
+  "پنجاه",
+  "شصت",
+  "هفتاد",
+  "هشتاد",
+  "نود"
+];
+
+const List<String> _hundreds = [
+  "",
+  "یکصد",
+  "دویست",
+  "سیصد",
+  "چهارصد",
+  "پانصد",
+  "ششصد",
+  "هفتصد",
+  "هشتصد",
+  "نهصد"
+];

@@ -44,7 +44,7 @@ To use this package, add it to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  pars_validator: ^0.5.0
+  pars_validator: ^0.5.1
 ```
 
 Then, run the following command to fetch the package:
@@ -81,6 +81,10 @@ String converted = General.toPersian('123 كلمه'); // '۱۲۳ کلمه'
 
 // Convert Persian and Arabic digits in a text to English digits
 String converted = General.toEnglishNumbers('۱۲۳۴'); // '1234'
+
+// Convert number to Persian letters
+// result:  'یک صد و بیست و سه میلیون چهار صد و پنجاه و شش هزار هفت صد و هشتاد و نه'
+String result = General.numberToLetters(123456789); 
 ```
 
 ### 🌏 National ID
