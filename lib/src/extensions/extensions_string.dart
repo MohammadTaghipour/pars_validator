@@ -354,4 +354,36 @@ extension StringValidation on String {
   String numberToPrice() {
     return General.numberToPrice(int.parse(this.trim()));
   }
+
+  /// Splits a given string into groups of a specified size, separated by a custom splitter.
+  ///
+  ///
+  /// ### Example:
+  /// ```dart
+  /// String result = "123456789".separate(splitter: ',', groupSize: 3); // "123,456,789"
+  ///
+  /// result = "abcdef".separate(splitter: '-', groupSize: 2); // "ab-cd-ef"
+  /// ```
+  ///
+  /// ### Parameters:
+  /// - [splitter]: The string used to join the separated groups. Defaults to `','`.
+  /// - [groupSize]: The number of characters in each group. Defaults to `3`.
+  ///
+  /// ### Returns:
+  /// - A formatted string where the input is split into groups of size `groupSize`
+  ///   and joined by the `splitter`.
+  ///
+  /// ### Throws:
+  /// - `ArgumentError` if the [groupSize] is less than or equal to 0.
+  ///
+  /// ### Notes:
+  /// - The method does not modify the input string directly but returns the formatted result.
+  /// - If the input string length is not a multiple of `groupSize`, the last group will contain
+  ///   the remaining characters.
+  String separate({
+    String splitter = ',',
+    int groupSize = 3,
+  }) {
+    return General.separate(this, splitter: splitter, groupSize: groupSize);
+  }
 }

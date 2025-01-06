@@ -14,6 +14,7 @@
 - Convert Persian and Arabic digits in a text to English digits
 - Convert number to Persian letters
 - Convert number to Persian price in Tomans
+- Separate numbers and strings with a custom count and separator
 
 #### 🌏 National ID utilities:
 - Validate an Iranian National ID
@@ -90,6 +91,9 @@ String result = General.numberToLetters(123456789);
 
 // Convert number to price
 String price = General.numberToPrice(1234567890); // خروجی: ۱۲ میلیون و ۳۴۵ هزار و ۶۷۸ تومان و ۹ ریال
+
+// Separate numbers and strings with a custom count and separator
+String result = General.separate("123456789", splitter: ',', groupSize: 3); // "123,456,789"
 ```
 
 ### 🌏 National ID

@@ -295,6 +295,48 @@ class General {
       return '${parts.join(" و ")} تومان'.toPersian();
     }
   }
+
+  /// Splits a given string into groups of a specified size, separated by a custom splitter.
+  ///
+  ///
+  /// ### Example:
+  /// ```dart
+  /// String result = General.separate("123456789", splitter: ',', groupSize: 3); // "123,456,789"
+  ///
+  /// result = General.separate("abcdef", splitter: '-', groupSize: 2); // "ab-cd-ef"
+  /// ```
+  ///
+  /// ### Parameters:
+  /// - [text]: The input string to be split.
+  /// - [splitter]: The string used to join the separated groups. Defaults to `','`.
+  /// - [groupSize]: The number of characters in each group. Defaults to `3`.
+  ///
+  /// ### Returns:
+  /// - A formatted string where the input is split into groups of size `groupSize`
+  ///   and joined by the `splitter`.
+  ///
+  /// ### Throws:
+  /// - `ArgumentError` if the [groupSize] is less than or equal to 0.
+  ///
+  /// ### Notes:
+  /// - The method does not modify the input string directly but returns the formatted result.
+  /// - If the input string length is not a multiple of `groupSize`, the last group will contain
+  ///   the remaining characters.
+  static String separate(
+    String text, {
+    String splitter = ',',
+    int groupSize = 3,
+  }) {
+    if (groupSize <= 0) {
+      throw ArgumentError('Group size must be greater than 0.');
+    }
+    List<String> parts = [];
+    for (int i = 0; i < text.length; i += groupSize) {
+      parts.add(text.substring(
+          i, (i + groupSize > text.length) ? text.length : i + groupSize));
+    }
+    return parts.join(splitter);
+  }
 }
 
 const List<String> _ones = [
