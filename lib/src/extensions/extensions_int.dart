@@ -30,4 +30,5 @@ extension IntValidation on int {
   /// - A formatted string representing the amount in Tomans and Rials, converted to Persian characters.
   String numberToPrice() {
     return General.numberToPrice(this);
+  }
 }
