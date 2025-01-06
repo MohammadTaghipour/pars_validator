@@ -386,4 +386,21 @@ extension StringValidation on String {
   }) {
     return General.separate(this, splitter: splitter, groupSize: groupSize);
   }
+
+  /// Validates whether the given postal code matches the expected format.
+  ///
+  ///
+  /// ### Example:
+  /// ```dart
+  /// bool isValid = "1918934354".isValidPostalCode(); // true
+  ///
+  /// isValid = "1111111111".isValidPostalCode(); // false
+  /// ```
+  ///
+  /// ### Returns:
+  /// - `true` if the postal code matches the specified pattern.
+  /// - `false` otherwise.
+  bool isValidPostalCode() {
+    return National.isValidPostalCode(this);
+  }
 }

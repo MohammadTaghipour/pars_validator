@@ -16,10 +16,11 @@
 - Convert number to Persian price in Tomans
 - Separate numbers and strings with a custom count and separator
 
-#### 🌏 National ID utilities:
+#### 🌏 National utilities:
 - Validate an Iranian National ID
 - Generate a random valid Iranian National ID
 - Get the issuance location of a National ID
+- Validate Iranian postal code
 
 #### 🏦 Bank utilities:
 
@@ -96,7 +97,7 @@ String price = General.numberToPrice(1234567890); // خروجی: ۱۲ میلیو
 String result = General.separate("123456789", splitter: ',', groupSize: 3); // "123,456,789"
 ```
 
-### 🌏 National ID
+### 🌏 National utilities
 ```dart
 // check national id validation
 bool isValid = National.isNationalIDValid("1234567890"); // false
@@ -106,6 +107,9 @@ String natId = National.generateRandomID(); // 0714265411
 
 // get the issuance location of a National ID
 String? issuance = National.getIssuance("1642459372"); // سراب
+
+// validate Iranian postal code
+bool isValid = National.isValidPostalCode("1918934354"); // true
 ```
 
 ### 🏦 Bank
@@ -161,7 +165,7 @@ String? issuance = '1642459372'.getIssuanceOfNationalID(); // سراب
 // check IBAN (Shaba) validation
 bool isValid = 'IR820540102680020817909007'.isIBANValid(); // true
 
-// and much more...
+// and all other functions...
 ```
 
 ## 🤝 Contributing

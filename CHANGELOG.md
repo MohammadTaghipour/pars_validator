@@ -1,10 +1,11 @@
 # 0.5.1
 
-Improve general text utilities
+Improve general text and National utilities
 
 - Convert number to Persian letters
 - Convert number to Persian price in Tomans
 - Separate numbers and strings with a custom count and separator
+- Validate Iranian postal code
 
 # 0.5.0
 

@@ -1,22 +1,22 @@
 import 'dart:math';
 
-/// A utility class for working with Iranian National IDs.
+/// A utility class for working with Iranian National utilities.
 ///
 /// This class provides methods for validating a National ID,
 /// generating a random valid National ID, and retrieving the issuance
-/// location based on the National ID.
+/// location based on the National ID and etc.
 ///
 /// ## Usage Example:
 ///
 /// ```dart
 /// // Validate a National ID
-/// bool isValid = NationalIDUtils.isNationalIDValid("1234567891");
+/// bool isValid = National.isNationalIDValid("1234567891");
 ///
 /// // Generate a random valid National ID
-/// String randomID = NationalIDUtils.generateRandomID();
+/// String randomID = National.generateRandomID();
 ///
 /// // Get the issuance location of a National ID
-/// String? issuance = NationalIDUtils.getIssuance("1234567891");
+/// String? issuance = National.getIssuance("1234567891");
 /// ```
 class National {
   /// Validates an Iranian National ID.
@@ -29,7 +29,7 @@ class National {
   /// Returns `true` if the National ID is valid; otherwise, returns `false`.
   ///
   /// ```dart
-  /// bool isValid = NationalIDUtils.isNationalIDValid("1234567891");
+  /// bool isValid = National.isNationalIDValid("1234567891");
   /// ```
   static bool isNationalIDValid(String nationalCode) {
     if (nationalCode.length != 10 ||
@@ -74,7 +74,7 @@ class National {
   /// Returns a valid National ID as a [String].
   ///
   /// ```dart
-  /// String randomID = NationalIDUtils.generateRandomID();
+  /// String randomID = National.generateRandomID();
   /// ```
   static String generateRandomID() {
     final random = Random();
@@ -104,7 +104,7 @@ class National {
   /// if the location cannot be determined.
   ///
   /// ```dart
-  /// String? issuance = NationalIDUtils.getIssuance("1234567891");
+  /// String? issuance = National.getIssuance("1234567891");
   /// ```
   static String? getIssuance(String nationalCode) {
     if (isNationalIDValid(nationalCode)) {
@@ -112,6 +112,28 @@ class National {
       return _placeOfIssueMap[codePrefix];
     }
     return null;
+  }
+
+  /// Validates whether the given postal code matches the expected format.
+  ///
+  ///
+  /// ### Example:
+  /// ```dart
+  /// bool isValid = National.isValidPostalCode("1918934354"); // true
+  ///
+  /// isValid = National.isValidPostalCode("1111111111"); // false
+  /// ```
+  ///
+  /// ### Parameters:
+  /// - [postalCode]: The input postal code to validate.
+  ///
+  /// ### Returns:
+  /// - `true` if the postal code matches the specified pattern.
+  /// - `false` otherwise.
+  static bool isValidPostalCode(String postalCode) {
+    final regex = RegExp(r'\b(?!(\d)\1{3})[13-9]{4}[1346-9][013-9]{5}\b',
+        caseSensitive: false);
+    return regex.hasMatch(postalCode);
   }
 }
 
