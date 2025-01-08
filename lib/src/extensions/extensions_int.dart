@@ -62,4 +62,21 @@ extension IntValidation on int {
     return General.separate(this.toString(),
         splitter: splitter, groupSize: groupSize);
   }
+
+  /// Validates whether the given OTP (One-Time Password) is valid.
+  ///
+  /// ### Example:
+  /// ```dart
+  /// bool isValid = 123456.isOTPValid(6); // true
+  /// ```
+  ///
+  /// ### Parameters:
+  /// - [length]: The expected length of the OTP.
+  ///
+  /// ### Returns:
+  /// - `true` if the OTP is valid (non-empty, correct length, numeric).
+  /// - `false` otherwise.
+  bool isOTPValid(int length) {
+    return General.isOTPValid(this.toString(), length);
+  }
 }

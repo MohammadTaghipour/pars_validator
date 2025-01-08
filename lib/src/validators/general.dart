@@ -337,6 +337,34 @@ class General {
     }
     return parts.join(splitter);
   }
+
+  /// Validates whether the given OTP (One-Time Password) is valid.
+  ///
+  ///
+  /// ### Example:
+  /// ```dart
+  /// bool isValid = General.isOTPValid("123456", 6); // true
+  /// ```
+  ///
+  /// ### Parameters:
+  /// - [text]: The input OTP string to validate.
+  /// - [length]: The expected length of the OTP.
+  ///
+  /// ### Returns:
+  /// - `true` if the OTP is valid (non-empty, correct length, numeric).
+  /// - `false` otherwise.
+  static bool isOTPValid(String text, int length) {
+    if (length < 1) {
+      throw ArgumentError('Length can not be smaller than 1');
+    }
+    if (text.isEmpty) {
+      return false;
+    }
+    if (text.length != length) {
+      return false;
+    }
+    return RegExp('^[0-9]{$length}\$').hasMatch(text);
+  }
 }
 
 const List<String> _ones = [
