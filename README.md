@@ -1,4 +1,12 @@
+<div align="center">
+
 ![](https://github.com/MohammadTaghipour/pars_validator/blob/master/img/logo.png)
+
+[![English](https://img.shields.io/badge/Language-English-blueviolet?style=for-the-badge)](README.md)
+[![Persian](https://img.shields.io/badge/Language-Persian-blueviolet?style=for-the-badge)](README-fa.md)  
+  
+</div>
+
 
 # ParsValidator
 **ParsValidator** is a robust and lightweight validation library designed specifically for Persian-speaking developers building Flutter applications. It provides a suite of utilities and tools to validate Persian-specific data formats, including national codes, phone numbers, Shamsi dates, bank card numbers, and more.
