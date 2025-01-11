@@ -1,4 +1,11 @@
+<div align="center">
+
 ![](https://github.com/MohammadTaghipour/pars_validator/blob/master/img/logo.png)
+
+[![English](https://img.shields.io/badge/Language-English-blueviolet?style=for-the-badge)](README.md)
+[![Persian](https://img.shields.io/badge/Language-Persian-blueviolet?style=for-the-badge)](README-fa.md)  
+  
+</div>
 
 # ParsValidator
 یک کتابخانه اعتبارسنجی قدرتمند و سبک است که به‌طور ویژه برای توسعه‌دهندگان فارسی‌زبان در ساخت اپلیکیشن‌های فلاتر طراحی شده است. این کتابخانه مجموعه‌ای از ابزارها و امکانات را برای اعتبارسنجی فرمت‌های خاص داده‌ای فارسی ارائه می‌دهد، از جمله کد ملی، شماره تلفن، تاریخ‌های شمسی، شماره کارت‌های بانکی و موارد دیگر.
