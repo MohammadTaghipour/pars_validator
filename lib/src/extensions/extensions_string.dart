@@ -420,4 +420,54 @@ extension StringValidation on String {
   bool isOTPValid(int length) {
     return General.isOTPValid(this, length);
   }
+
+  /// Validates if a password meets specified security requirements.
+  ///
+  /// This function checks a password against several conditions such as the
+  /// presence of uppercase letters, lowercase letters, digits, special characters,
+  /// and a minimum length.
+  ///
+  /// Parameters:
+  /// - [uppercaseRequired] (optional): Specifies if at least one uppercase letter
+  ///   is required. Default is `true`.
+  /// - [lowercaseRequired] (optional): Specifies if at least one lowercase letter
+  ///   is required. Default is `true`.
+  /// - [digitsRequired] (optional): Specifies if at least one numeric digit is required.
+  ///   Default is `true`.
+  /// - [specialCharRequired] (optional): Specifies if at least one special character
+  ///   (e.g., @, $, !) is required. Default is `true`.
+  /// - [minimumLength] (optional): Specifies the minimum length of the password.
+  ///   Default is `8`.
+  ///
+  /// Returns:
+  /// - `true` if the password meets all specified requirements.
+  /// - `false` otherwise.
+  ///
+  /// Throws:
+  /// - `ArgumentError` if [minimumLength] is less than 1.
+  ///
+  /// Example:
+  /// ```dart
+  /// bool isValid = "Example@123".isPasswordValid(
+  ///   minimumLength: 10,
+  ///   uppercaseRequired: true,
+  ///   specialCharRequired: true,
+  /// );
+  /// print(isValid); // true
+  /// ```
+  bool isPasswordValid(
+    String password, {
+    bool uppercaseRequired = true,
+    bool lowercaseRequired = true,
+    bool digitsRequired = true,
+    bool specialCharRequired = true,
+    int minimumLength = 8,
+  }) {
+    return General.isPasswordValid(this,
+        uppercaseRequired: uppercaseRequired,
+        lowercaseRequired: lowercaseRequired,
+        digitsRequired: digitsRequired,
+        specialCharRequired: specialCharRequired,
+        minimumLength: minimumLength);
+  }
 }

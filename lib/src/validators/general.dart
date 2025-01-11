@@ -365,6 +365,65 @@ class General {
     }
     return RegExp('^[0-9]{$length}\$').hasMatch(text);
   }
+
+  /// Validates if a password meets specified security requirements.
+  ///
+  /// This function checks a password against several conditions such as the
+  /// presence of uppercase letters, lowercase letters, digits, special characters,
+  /// and a minimum length.
+  ///
+  /// Parameters:
+  /// - [password]: The password string to validate.
+  /// - [uppercaseRequired] (optional): Specifies if at least one uppercase letter
+  ///   is required. Default is `true`.
+  /// - [lowercaseRequired] (optional): Specifies if at least one lowercase letter
+  ///   is required. Default is `true`.
+  /// - [digitsRequired] (optional): Specifies if at least one numeric digit is required.
+  ///   Default is `true`.
+  /// - [specialCharRequired] (optional): Specifies if at least one special character
+  ///   (e.g., @, $, !) is required. Default is `true`.
+  /// - [minimumLength] (optional): Specifies the minimum length of the password.
+  ///   Default is `8`.
+  ///
+  /// Returns:
+  /// - `true` if the password meets all specified requirements.
+  /// - `false` otherwise.
+  ///
+  /// Throws:
+  /// - `ArgumentError` if [minimumLength] is less than 1.
+  ///
+  /// Example:
+  /// ```dart
+  /// bool isValid = General.isPasswordValid(
+  ///   "Example@123",
+  ///   minimumLength: 10,
+  ///   uppercaseRequired: true,
+  ///   specialCharRequired: true,
+  /// );
+  /// print(isValid); // true
+  /// ```
+  static bool isPasswordValid(
+    String password, {
+    bool uppercaseRequired = true,
+    bool lowercaseRequired = true,
+    bool digitsRequired = true,
+    bool specialCharRequired = true,
+    int minimumLength = 8,
+  }) {
+    if (minimumLength < 1) {
+      throw ArgumentError('The length of password can not be smaller than 1');
+    }
+    final String uppercaseValidator = uppercaseRequired ? '(?=.*[A-Z])' : '';
+    final String lowercaseValidator = lowercaseRequired ? '(?=.*[a-z])' : '';
+    final String digitValidator = digitsRequired ? '(?=.*\\d)' : '';
+    final String specialCharValidator =
+        specialCharRequired ? '(?=.*[@\$_!%*?&])' : '';
+    final String minCharsValidator = '[A-Za-z\\d@\$_!%*?&]{$minimumLength,}';
+    final String rgx =
+        '^$uppercaseValidator$lowercaseValidator$digitValidator$specialCharValidator$minCharsValidator\$';
+    final regex = RegExp(rgx);
+    return regex.hasMatch(password);
+  }
 }
 
 const List<String> _ones = [
