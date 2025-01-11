@@ -3,6 +3,7 @@
 Improve general utilities
 
 - OTP verification validator
+- Validate passwords with customizable parameters
 
 # 0.5.4
 

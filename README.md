@@ -15,6 +15,8 @@
 - Convert number to Persian letters
 - Convert number to Persian price in Tomans
 - Separate numbers and strings with a custom count and separator
+- Validate OTP codes
+- Validate passwords with customizable parameters
 
 #### 🌏 National utilities:
 - Validate an Iranian National ID
@@ -91,10 +93,22 @@ String converted = General.toEnglishNumbers('۱۲۳۴'); // '1234'
 String result = General.numberToLetters(123456789);
 
 // Convert number to price
-String price = General.numberToPrice(1234567890); // خروجی: ۱۲ میلیون و ۳۴۵ هزار و ۶۷۸ تومان و ۹ ریال
+String price = General.numberToPrice(
+    1234567890); // خروجی: ۱۲ میلیون و ۳۴۵ هزار و ۶۷۸ تومان و ۹ ریال
 
 // Separate numbers and strings with a custom count and separator
 String result = General.separate("123456789", splitter: ',', groupSize: 3); // "123,456,789"
+
+// Validate OTP
+bool isValid = General.isOTPValid("123456", 6); // true
+
+// Check password validation
+bool isValid = General.isPasswordValid(
+  "Example@123",
+  minimumLength: 10,
+  uppercaseRequired: true,
+  specialCharRequired: true,
+); // true
 ```
 
 ### 🌏 National utilities
