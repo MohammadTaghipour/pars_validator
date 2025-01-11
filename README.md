@@ -4,7 +4,14 @@
 
 [![English](https://img.shields.io/badge/Language-English-blueviolet?style=for-the-badge)](README.md)
 [![Persian](https://img.shields.io/badge/Language-Persian-blueviolet?style=for-the-badge)](README-fa.md)  
-  
+
+
+[![pub package](https://img.shields.io/pub/v/pars_validator.svg?label=pars_validator&color=blue)](https://pub.dev/packages/pars_validator)
+[![popularity](https://img.shields.io/pub/popularity/pars_validator?logo=dart)](https://pub.dev/packages/pars_validator/score)
+[![likes](https://img.shields.io/pub/likes/pars_validator?logo=dart)](https://pub.dev/packages/pars_validator/score)
+[![pub points](https://img.shields.io/pub/points/pars_validator?logo=dart)](https://pub.dev/packages/get/score)
+[![style: effective dart](https://img.shields.io/badge/style-effective_dart-40c4ff.svg)](https://pub.dev/packages/effective_dart)
+[![Telegram](https://img.shields.io/badge/text-on%20Telegram-blue.svg)](https://t.me/taghipour_dev)
 </div>
 
 
