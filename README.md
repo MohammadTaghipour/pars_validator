@@ -19,10 +19,12 @@
 - Validate passwords with customizable parameters
 
 #### 🌏 National utilities:
+
 - Validate an Iranian National ID
 - Generate a random valid Iranian National ID
 - Get the issuance location of a National ID
 - Validate Iranian postal code
+- Validate Iranian company national ID
 
 #### 🏦 Bank utilities:
 
@@ -124,6 +126,9 @@ String? issuance = National.getIssuance("1642459372"); // سراب
 
 // validate Iranian postal code
 bool isValid = National.isValidPostalCode("1918934354"); // true
+
+// Validate Iranian company national ID
+bool isValid = National.isLegalNationalID('10380284790'); // true
 ```
 
 ### 🏦 Bank

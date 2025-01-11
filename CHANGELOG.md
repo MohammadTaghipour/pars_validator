@@ -4,6 +4,7 @@ Improve general utilities
 
 - OTP verification validator
 - Validate passwords with customizable parameters
+- Validate Iranian company national ID
 
 # 0.5.4
 
