@@ -1,6 +1,12 @@
+# 0.5.6
+
+Update Documentations
+
+- Add Persian readme
+
 # 0.5.5
 
-Improve general utilities
+Improve general and national utilities
 
 - OTP verification validator
 - Validate passwords with customizable parameters
