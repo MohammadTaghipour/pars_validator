@@ -1,76 +1,76 @@
 ![](https://github.com/MohammadTaghipour/pars_validator/blob/master/img/logo.png)
 
-# پارس ولیدیتور
-**ParsValidator** یک کتابخانه معتبر و سبک وزن است که به طور خاص برای توسعه دهندگان فارسی زبان که برنامه های Flutter را می سازند طراحی شده است. مجموعه‌ای از ابزارها و ابزارها را برای اعتبارسنجی فرمت‌های داده‌های خاص فارسی، از جمله کدهای ملی، شماره تلفن، تاریخ شمسی، شماره کارت‌های بانکی و غیره ارائه می‌کند.
+# ParsValidator
+یک کتابخانه اعتبارسنجی قدرتمند و سبک است که به‌طور ویژه برای توسعه‌دهندگان فارسی‌زبان در ساخت اپلیکیشن‌های فلاتر طراحی شده است. این کتابخانه مجموعه‌ای از ابزارها و امکانات را برای اعتبارسنجی فرمت‌های خاص داده‌ای فارسی ارائه می‌دهد، از جمله کد ملی، شماره تلفن، تاریخ‌های شمسی، شماره کارت‌های بانکی و موارد دیگر.
 
-## ✨ Features
+## ✨ ویژگی ها
 
-#### 🌌 General text utilities:
+#### 🌌 توابع عمومی متنی
 
-- Check that a text contains only Persian letters
-- Validate the word count of a given text
-- Count the number of words in a given text
-- Convert a text to Persian format, replacing Arabic characters and English digits
-- Convert Persian and Arabic digits in a text to English digits
-- Convert number to Persian letters
-- Convert number to Persian price in Tomans
-- Separate numbers and strings with a custom count and separator
-- Validate OTP codes
-- Validate passwords with customizable parameters
+- بررسی اینکه یک متن فقط حاوی حروف فارسی باشد
+- اعتبارسنجی تعداد کلمات یک متن داده‌شده
+- شمردن تعداد کلمات در یک متن داده‌شده
+- تبدیل متن به فرمت فارسی، با جایگزینی حروف عربی و اعداد انگلیسی
+- تبدیل اعداد فارسی و عربی در یک متن به اعداد انگلیسی
+- تبدیل عدد به حروف فارسی
+- تبدیل عدد به قیمت فارسی به تومان
+- جدا کردن اعداد و رشته‌ها با تعداد و جداکننده دلخواه
+- اعتبارسنجی کدهای OTP
+- اعتبارسنجی پسوردها با پارامترهای قابل تنظیم
 
-#### 🌏 National utilities:
+  
+#### 🌏 توابع ملی
+- اعتبارسنجی کد ملی ایرانی
+- تولید یک کد ملی ایرانی معتبر به‌صورت تصادفی
+- دریافت محل صدور کد ملی
+- اعتبارسنجی کد پستی ایرانی
+- اعتبارسنجی کد ملی شرکت‌های ایرانی
 
-- Validate an Iranian National ID
-- Generate a random valid Iranian National ID
-- Get the issuance location of a National ID
-- Validate Iranian postal code
-- Validate Iranian company national ID
+#### 🏦 توابع بانکی
 
-#### 🏦 Bank utilities:
+- اعتبارسنجی شماره کارت
+- فرمت شماره کارت و جداسازی رقم به رقم شماره کارت
+- اعتبارسنجی شماره شبا
+- دریافت نام و آیکون بانک براساس شماره کارت
 
-- Validate credit card number
-- Format credit card number
-- Validate IBAN (Shaba)
-- Get the name or icon of a card number
+#### ☎ 📱 توابع شماره تلفن و موبایل و ایمیل
 
-#### ☎ 📱 Telephone & Mobile number & Email utilities:
+- اعتبارسنجی تلفن خط ثابت و شماره موبایل
+- دریافت نام استان شماره تلفن ثابت
+- دریافت نام و آیکون اپراتور تلفن همراه
+- اعتبارسنجی ایمیل با فرمت استاندارد
 
-- Validate landline and mobile number formats
-- Get the province of a landline number
-- Get the operator name or icon of a mobile number
-- Validate Email address with standard format
-
-## ⚙ Platform Support
+## ⚙ پلتفرم های پشتیبانی شده
 
 | 📱 Android | 🍎 iOS | 🍏 MacOS | 🌐 Web | 🐧 Linux | 💻 Windows |
 |:----------:|:------:|:--------:|:------:|:--------:|:----------:|
 |     ✅      |   ✅    |    ✅     |   ✅    |    ✅     |     ✅      |
 
-## 📦 Installation
+## 📦 نصب و راه اندازی
 
-To use this package, add it to your `pubspec.yaml` file:
+برای استفاده از این بسته، آن را به فایل `pubspec.yaml` خود اضافه کنید:
 
 ```yaml
 dependencies:
   pars_validator: ^0.5.5
 ```
 
-Then, run the following command to fetch the package:
+سپس، دستور زیر را برای دریافت بسته اجرا کنید:
 
 ```bash
 flutter pub get
 ```
 
-Import the package in your project:
+برای وارد کردن بسته به پروژه خود، از دستور زیر استفاده کنید:
 
 ```dart
 import 'package:pars_validator/pars_validator.dart';
 ```
 
 
-## 📚 Usage
+## 📚 نحوه استفاده
 
-### 🌌 General text utilities:
+### 🌌 توابع متنی عمومی
 
 ```dart
 // Check that a text contains only Persian letters
@@ -113,7 +113,7 @@ bool isValid = General.isPasswordValid(
 ); // true
 ```
 
-### 🌏 National utilities
+### 🌏 توابع ملی
 ```dart
 // check national id validation
 bool isValid = National.isNationalIDValid("1234567890"); // false
@@ -131,7 +131,7 @@ bool isValid = National.isValidPostalCode("1918934354"); // true
 bool isValid = National.isLegalNationalID('10380284790'); // true
 ```
 
-### 🏦 Bank
+### 🏦 توابع بانکی
 
 ```dart
 // check card number validation
@@ -150,7 +150,7 @@ String? bankName = Banker.getBankNameByCardNumber('6274129005473742'); // اقت
 Widget? bankIcon = Banker.getIcon('6274129005473742'); // svg icon of Eghtesad Novin bank
 ```
 
-### ☎ 📱 Telephone & Mobile number & Email
+### ☎ 📱 توابع تلفن ثابت و تلفن همراه و ایمیل
 
 ```dart
 // check mobile number validation
@@ -172,7 +172,7 @@ Widget? operatorIcon = Phone.getMobileOperatorIcon('+98 912 345 6789'); // Hamra
 bool isValid = Phone.isEmailValid('example@domain.com'); // true
 ```
 
-### 🛠 Also with Extensions
+### 🛠 همچنین میتوانید از اکستنشن ها نیز استفاده کنید...
 
 ```dart
 // check national id validation
@@ -187,18 +187,18 @@ bool isValid = 'IR820540102680020817909007'.isIBANValid(); // true
 // and all other functions...
 ```
 
-## 🤝 Contributing
+## 🤝 مشارکت
 
-Contributions are welcome! If you'd like to contribute, feel free to open a pull request or submit
-an issue.
+اگر تمایل داشتید در توسعه و بهبود این کتابخانه مشارکت کنید بسیار خوشحال میشویم که یک pull request ایجاد کنید و یا اگر مشکلی در پکیج وجود داشت یک issue ثبت کنید تا حتما در اسرع وفت بررسی کنیم. قلب فراوان
 
-## 🛡️ License
+## 🛡️ مجوز
 
-This project is licensed under the [MIT License](https://mit-license.org/).
+این پروژه تحت مجوز [MIT License](https://mit-license.org/) توسعه داده شده است.
 
-## 📧 Contact
+## 📧 تماس
 
-For questions, feedback, or support, please reach out:
+برای سوالات، بازخورد یا پشتیبانی، لطفاً با ما تماس بگیرید:
 
-- **Developer**: Mohammad Taghipour
-- **Email**: taghipourmohammad7@gmail.com
+
+- **توسعه دهنده**: محمد تقی پور
+- **ایمیل**: taghipourmohammad7@gmail.com
