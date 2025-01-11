@@ -470,4 +470,24 @@ extension StringValidation on String {
         specialCharRequired: specialCharRequired,
         minimumLength: minimumLength);
   }
+
+  /// Validates if a given Iranian legal national ID is valid.
+  ///
+  /// This function checks whether an 11-digit legal national ID conforms to the
+  /// official Iranian validation algorithm.
+  ///
+  /// Parameters:
+  /// - [nationalID]: A string representing the national ID of a company to validate.
+  ///
+  /// Returns:
+  /// - `true` if the national ID is valid.
+  /// - `false` otherwise.
+  ///
+  /// Example:
+  /// ```dart
+  /// bool isValid = '10380284790'.isLegalNationalID();// true
+  /// ```
+  bool isLegalNationalIDValid() {
+    return National.isLegalNationalID(this);
+  }
 }

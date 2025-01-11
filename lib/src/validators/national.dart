@@ -135,6 +135,44 @@ class National {
         caseSensitive: false);
     return regex.hasMatch(postalCode);
   }
+
+  /// Validates if a given Iranian legal national ID is valid.
+  ///
+  /// This function checks whether an 11-digit legal national ID conforms to the
+  /// official Iranian validation algorithm.
+  ///
+  /// Parameters:
+  /// - [nationalID]: A string representing the national ID of a company to validate.
+  ///
+  /// Returns:
+  /// - `true` if the national ID is valid.
+  /// - `false` otherwise.
+  ///
+  /// Example:
+  /// ```dart
+  /// bool isValid = National.isLegalNationalID('10380284790');// true
+  /// ```
+  static bool isLegalNationalID(String nationalID) {
+    int L = nationalID.length;
+
+    if (L < 11 || int.parse(nationalID) == 0) return false;
+
+    if (int.parse(nationalID.substring(3, 9)) == 0) return false;
+
+    int c = int.parse(nationalID.substring(10, 11));
+    int d = int.parse(nationalID.substring(9, 10)) + 2;
+    List<int> z = [29, 27, 23, 19, 17];
+    int s = 0;
+
+    for (int i = 0; i < 10; i++) {
+      s += (d + int.parse(nationalID.substring(i, i + 1))) * z[i % 5];
+    }
+
+    s = s % 11;
+    if (s == 10) s = 0;
+
+    return c == s;
+  }
 }
 
 // محل صدور شناسنامه
