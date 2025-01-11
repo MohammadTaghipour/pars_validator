@@ -1,3 +1,9 @@
+# 0.5.5
+
+Improve general utilities
+
+- OTP verification validator
+
 # 0.5.4
 
 Improve general text and National utilities
