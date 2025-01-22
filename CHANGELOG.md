@@ -1,3 +1,9 @@
+# 0.5.7
+
+Improve general utilities
+
+- Setup half-space handling
+
 # 0.5.6
 
 Update Documentations

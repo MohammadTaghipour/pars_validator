@@ -30,6 +30,7 @@
 - جدا کردن اعداد و رشته‌ها با تعداد و جداکننده دلخواه
 - اعتبارسنجی کدهای OTP
 - اعتبارسنجی پسوردها با پارامترهای قابل تنظیم
+- مدیریت نیم‌فاصله ها
 
   
 #### 🌏 توابع ملی
@@ -65,7 +66,7 @@
 
 ```yaml
 dependencies:
-  pars_validator: ^0.5.6
+  pars_validator: ^0.5.7
 ```
 
 سپس، دستور زیر را برای دریافت بسته اجرا کنید:
@@ -124,6 +125,11 @@ bool isValid = General.isPasswordValid(
   uppercaseRequired: true,
   specialCharRequired: true,
 ); // true
+
+// Half-space handling
+String cleaned = General.removeHalfSpaces("سلام‌علیکم"); // "سلامعلیکم"
+String formatted = General.replaceSpacesWithHalfSpaces("سلام علیکم"); // "سلام‌علیکم"
+String normalized = General.replaceHalfSpacesWithSpaces("سلام‌علیکم"); // "سلام علیکم"
 ```
 
 ### 🌏 توابع ملی

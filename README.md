@@ -32,6 +32,7 @@
 - Separate numbers and strings with a custom count and separator
 - Validate OTP codes
 - Validate passwords with customizable parameters
+- Half-space handling
 
 #### 🌏 National utilities:
 
@@ -67,7 +68,7 @@ To use this package, add it to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  pars_validator: ^0.5.6
+  pars_validator: ^0.5.7
 ```
 
 Then, run the following command to fetch the package:
@@ -126,6 +127,11 @@ bool isValid = General.isPasswordValid(
   uppercaseRequired: true,
   specialCharRequired: true,
 ); // true
+
+// Half-space handling
+String cleaned = General.removeHalfSpaces("سلام‌علیکم"); // "سلامعلیکم"
+String formatted = General.replaceSpacesWithHalfSpaces("سلام علیکم"); // "سلام‌علیکم"
+String normalized = General.replaceHalfSpacesWithSpaces("سلام‌علیکم"); // "سلام علیکم"
 ```
 
 ### 🌏 National utilities
