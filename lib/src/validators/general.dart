@@ -424,6 +424,68 @@ class General {
     final regex = RegExp(rgx);
     return regex.hasMatch(password);
   }
+
+  static const String _halfSpace = '\u200C';
+
+  /// Removes all half-spaces (zero-width non-joiner) from the given string.
+  ///
+  /// Parameters:
+  /// - [input]: A string potentially containing half-spaces to remove.
+  ///
+  /// Returns:
+  /// - A new string with all half-spaces removed.
+  ///
+  /// Notes:
+  /// - Half-space characters are commonly used in Persian text as zero-width non-joiners.
+  /// - The half-space character is represented by `U+200C` (Zero Width Non-Joiner).
+  ///
+  /// Example:
+  /// ```dart
+  /// String cleaned = General.removeHalfSpaces("سلام‌علیکم"); // "سلامعلیکم"
+  /// ```
+  static String removeHalfSpaces(String input) {
+    return input.replaceAll(_halfSpace, '');
+  }
+
+  /// Replaces all spaces in the given string with half-spaces (zero-width non-joiners).
+  ///
+  /// Parameters:
+  /// - [input]: A string where spaces should be replaced with half-spaces.
+  ///
+  /// Returns:
+  /// - A new string with spaces replaced by half-spaces.
+  ///
+  /// Notes:
+  /// - Half-space characters are commonly used in Persian text for better typographic layout.
+  /// - The half-space character is represented by `U+200C` (Zero Width Non-Joiner).
+  ///
+  /// Example:
+  /// ```dart
+  /// String formatted = General.replaceSpacesWithHalfSpaces("سلام علیکم"); // "سلام‌علیکم"
+  /// ```
+  static String replaceSpacesWithHalfSpaces(String input) {
+    return input.replaceAll(' ', _halfSpace);
+  }
+
+  /// Replaces all half-spaces (zero-width non-joiners) in the given string with regular spaces.
+  ///
+  /// Parameters:
+  /// - [input]: A string where half-spaces should be replaced with regular spaces.
+  ///
+  /// Returns:
+  /// - A new string with half-spaces replaced by regular spaces.
+  ///
+  /// Notes:
+  /// - The half-space character is represented by `U+200C` (Zero Width Non-Joiner).
+  /// - This function is useful for normalizing Persian text for cases where regular spaces are preferred.
+  ///
+  /// Example:
+  /// ```dart
+  /// String normalized = General.replaceHalfSpacesWithSpaces("سلام‌علیکم"); // "سلام علیکم"
+  /// ```
+  static String replaceHalfSpacesWithSpaces(String input) {
+    return input.replaceAll(_halfSpace, ' ');
+  }
 }
 
 const List<String> _ones = [
