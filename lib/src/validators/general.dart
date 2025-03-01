@@ -94,10 +94,11 @@ class General {
       '٨': '۸',
       '٩': '۹',
     };
-    return text
-        .split('')
-        .map((char) => arabicToPersianMap[char] ?? char)
-        .join('');
+    for (int index = 0; index < arabicToPersianMap.length; index++) {
+      text = text.replaceAll(arabicToPersianMap.keys.toList()[index],
+          arabicToPersianMap.values.toList()[index]);
+    }
+    return text;
   }
 
   /// Converts English digits in a text to Persian digits.
@@ -125,10 +126,11 @@ class General {
       '8': '۸',
       '9': '۹',
     };
-    return text
-        .split('')
-        .map((char) => englishToPersianNumbers[char] ?? char)
-        .join('');
+    for (int index = 0; index < englishToPersianNumbers.length; index++) {
+      text = text.replaceAll(englishToPersianNumbers.keys.toList()[index],
+          englishToPersianNumbers.values.toList()[index]);
+    }
+    return text;
   }
 
   /// Converts a text to Persian format, replacing Arabic characters and English digits.
@@ -175,10 +177,11 @@ class General {
       '٨': '8',
       '٩': '9',
     };
-    return text
-        .split('')
-        .map((char) => arabicToPersianMap[char] ?? char)
-        .join('');
+    for (int index = 0; index < arabicToPersianMap.length; index++) {
+      text = text.replaceAll(arabicToPersianMap.keys.toList()[index],
+          arabicToPersianMap.values.toList()[index]);
+    }
+    return text;
   }
 
   static String _convertThreeDigits(int number) {
