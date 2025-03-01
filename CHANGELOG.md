@@ -1,3 +1,9 @@
+# 0.5.8
+
+Fix number utilities
+
+- Bugfix in converting numbers
+
 # 0.5.7
 
 Improve general utilities

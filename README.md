@@ -68,7 +68,7 @@ To use this package, add it to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  pars_validator: ^0.5.7
+  pars_validator: ^0.5.8
 ```
 
 Then, run the following command to fetch the package:
