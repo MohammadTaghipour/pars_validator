@@ -66,7 +66,7 @@
 
 ```yaml
 dependencies:
-  pars_validator: ^0.5.8
+  pars_validator: ^0.5.9
 ```
 
 سپس، دستور زیر را برای دریافت بسته اجرا کنید:

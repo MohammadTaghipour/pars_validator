@@ -1,3 +1,9 @@
+# 0.5.9
+
+Minimize package
+
+- Remove unused dependencies
+
 # 0.5.8
 
 Fix number utilities
