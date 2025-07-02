@@ -10,7 +10,7 @@
 [![likes](https://img.shields.io/pub/likes/pars_validator?logo=dart)](https://pub.dev/packages/pars_validator/score)
 [![pub points](https://img.shields.io/pub/points/pars_validator?logo=dart)](https://pub.dev/packages/get/score)
 [![style: effective dart](https://img.shields.io/badge/style-effective_dart-40c4ff.svg)](https://pub.dev/packages/effective_dart)
-[![Telegram](https://img.shields.io/badge/text-on%20Telegram-blue.svg)](https://t.me/taghipour_dev)
+[![Telegram](https://img.shields.io/badge/text-on%20Telegram-blue.svg)](https://t.me/theTaghipour)
 </div>
 
 # ParsValidator
