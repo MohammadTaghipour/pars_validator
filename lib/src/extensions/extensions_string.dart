@@ -438,6 +438,8 @@ extension StringValidation on String {
   ///   (e.g., @, $, !) is required. Default is `true`.
   /// - [minimumLength] (optional): Specifies the minimum length of the password.
   ///   Default is `8`.
+  /// - [specialChars] (optional): Specifies the regex of special chars of the password.
+  ///   Default is '[@\$_!%*?&]'.
   ///
   /// Returns:
   /// - `true` if the password meets all specified requirements.
@@ -462,13 +464,16 @@ extension StringValidation on String {
     bool digitsRequired = true,
     bool specialCharRequired = true,
     int minimumLength = 8,
+    String specialChars = '[@\$_!%*?&]',
   }) {
     return General.isPasswordValid(this,
         uppercaseRequired: uppercaseRequired,
         lowercaseRequired: lowercaseRequired,
         digitsRequired: digitsRequired,
         specialCharRequired: specialCharRequired,
-        minimumLength: minimumLength);
+      minimumLength: minimumLength,
+      specialChars: specialChars,
+    );
   }
 
   /// Validates if a given Iranian legal national ID is valid.

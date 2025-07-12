@@ -387,6 +387,8 @@ class General {
   ///   (e.g., @, $, !) is required. Default is `true`.
   /// - [minimumLength] (optional): Specifies the minimum length of the password.
   ///   Default is `8`.
+  /// - [specialChars] (optional): Specifies the regex of special chars of the password.
+  ///   Default is '[@\$_!%*?&]'.
   ///
   /// Returns:
   /// - `true` if the password meets all specified requirements.
@@ -412,6 +414,7 @@ class General {
     bool digitsRequired = true,
     bool specialCharRequired = true,
     int minimumLength = 8,
+    String specialChars = '[@\$_!%*?&]',
   }) {
     if (minimumLength < 1) {
       throw ArgumentError('The length of password can not be smaller than 1');
@@ -420,7 +423,7 @@ class General {
     final String lowercaseValidator = lowercaseRequired ? '(?=.*[a-z])' : '';
     final String digitValidator = digitsRequired ? '(?=.*\\d)' : '';
     final String specialCharValidator =
-        specialCharRequired ? '(?=.*[@\$_!%*?&])' : '';
+        specialCharRequired ? '(?=.*[$specialChars])' : '';
     final String minCharsValidator = '[A-Za-z\\d@\$_!%*?&]{$minimumLength,}';
     final String rgx =
         '^$uppercaseValidator$lowercaseValidator$digitValidator$specialCharValidator$minCharsValidator\$';
