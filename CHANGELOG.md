@@ -1,3 +1,9 @@
+# 0.6.0
+
+Password validator improvements
+
+- Now you can define custom special chars for passwords
+
 # 0.5.9
 
 Minimize package

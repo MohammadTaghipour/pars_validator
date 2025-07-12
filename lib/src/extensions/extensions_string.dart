@@ -466,11 +466,12 @@ extension StringValidation on String {
     int minimumLength = 8,
     String specialChars = '[@\$_!%*?&]',
   }) {
-    return General.isPasswordValid(this,
-        uppercaseRequired: uppercaseRequired,
-        lowercaseRequired: lowercaseRequired,
-        digitsRequired: digitsRequired,
-        specialCharRequired: specialCharRequired,
+    return General.isPasswordValid(
+      this,
+      uppercaseRequired: uppercaseRequired,
+      lowercaseRequired: lowercaseRequired,
+      digitsRequired: digitsRequired,
+      specialCharRequired: specialCharRequired,
       minimumLength: minimumLength,
       specialChars: specialChars,
     );
