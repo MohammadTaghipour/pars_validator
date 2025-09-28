@@ -1,3 +1,11 @@
+# 0.6.1
+
+String options improvements
+
+- Added `General.isNumeric('123')` and `'123'.isNumeric()` utility:
+  - Supports English, Persian and Arabic-Indic digits.
+  - Can validate both integers and decimal numbers (using `.`, `,`, or `٫` as decimal separator).
+
 # 0.6.0
 
 Password validator improvements

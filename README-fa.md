@@ -66,7 +66,7 @@
 
 ```yaml
 dependencies:
-  pars_validator: ^0.6.0
+  pars_validator: ^0.6.1
 ```
 
 سپس، دستور زیر را برای دریافت بسته اجرا کنید:
@@ -117,6 +117,11 @@ String result = General.separate("123456789", splitter: ',', groupSize: 3); // "
 
 // Validate OTP
 bool isValid = General.isOTPValid("123456", 6); // true
+
+// Check is numeric
+bool result1 = '123'.isNumeric(); // true
+bool result4 = '۱۲۳٫۴۵'.isNumeric(decimal: true); // true (decimal)
+bool result5 = '12a3'.isNumeric(); // false
 
 // Check password validation
 bool isValid = General.isPasswordValid(

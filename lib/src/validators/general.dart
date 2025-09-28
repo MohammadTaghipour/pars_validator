@@ -505,8 +505,8 @@ class General {
   /// ```dart
   /// bool result1 = General.isNumeric('123');       // true
   /// bool result2 = General.isNumeric('۱۲۳');       // true
-  /// bool result3 = General.isNumeric('123.45');    // true (decimal)
-  /// bool result4 = General.isNumeric('۱۲۳٫۴۵');    // true (decimal in Persian)
+  /// bool result3 = General.isNumeric('123.45', decimal: true);    // true (decimal)
+  /// bool result4 = General.isNumeric('۱۲۳٫۴۵', decimal: true);    // true (decimal in Persian)
   /// bool result5 = General.isNumeric('12a3');      // false
   /// ```
   ///

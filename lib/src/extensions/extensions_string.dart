@@ -569,8 +569,8 @@ extension StringValidation on String {
   /// ```dart
   /// bool result1 = '123'.isNumeric();       // true
   /// bool result2 = '۱۲۳'.isNumeric();       // true
-  /// bool result3 = '123.45'.isNumeric();    // true (decimal)
-  /// bool result4 = '۱۲۳٫۴۵'.isNumeric();     // true (decimal in Persian)
+  /// bool result3 = '123.45'.isNumeric(decimal: true);    // true (decimal)
+  /// bool result4 = '۱۲۳٫۴۵'.isNumeric(decimal: true);     // true (decimal in Persian)
   /// bool result5 = '12a3'.isNumeric();     // false
   /// ```
   ///
