@@ -556,4 +556,30 @@ extension StringValidation on String {
   String replaceHalfSpacesWithSpaces() {
     return General.replaceHalfSpacesWithSpaces(this);
   }
+
+  /// Checks if the given text represents a valid number.
+  ///
+  /// Supports **English**, **Persian**, and **Arabic-Indic** digits.
+  ///
+  /// By default, only integer numbers are accepted.
+  /// If [decimal] is set to `true`, decimal numbers with
+  /// `.`, `,`, or `٫` as the decimal separator are also allowed.
+  ///
+  /// ### Example:
+  /// ```dart
+  /// bool result1 = '123'.isNumeric();       // true
+  /// bool result2 = '۱۲۳'.isNumeric();       // true
+  /// bool result3 = '123.45'.isNumeric();    // true (decimal)
+  /// bool result4 = '۱۲۳٫۴۵'.isNumeric();     // true (decimal in Persian)
+  /// bool result5 = '12a3'.isNumeric();     // false
+  /// ```
+  ///
+  /// ### Parameters:
+  /// - [decimal]: If `true`, allows decimal numbers. Defaults to `false`.
+  ///
+  /// ### Returns:
+  /// - `true` if the text is numeric, otherwise `false`.
+  bool isNumeric({bool decimal = false}) {
+    return General.isNumeric(this, decimal: decimal);
+  }
 }

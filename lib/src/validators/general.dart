@@ -492,6 +492,43 @@ class General {
   static String replaceHalfSpacesWithSpaces(String input) {
     return input.replaceAll(_halfSpace, ' ');
   }
+
+  /// Checks if the given text represents a valid number.
+  ///
+  /// Supports **English**, **Persian**, and **Arabic-Indic** digits.
+  ///
+  /// By default, only integer numbers are accepted.
+  /// If [decimal] is set to `true`, decimal numbers with
+  /// `.`, `,`, or `٫` as the decimal separator are also allowed.
+  ///
+  /// ### Example:
+  /// ```dart
+  /// bool result1 = General.isNumeric('123');       // true
+  /// bool result2 = General.isNumeric('۱۲۳');       // true
+  /// bool result3 = General.isNumeric('123.45');    // true (decimal)
+  /// bool result4 = General.isNumeric('۱۲۳٫۴۵');    // true (decimal in Persian)
+  /// bool result5 = General.isNumeric('12a3');      // false
+  /// ```
+  ///
+  /// ### Parameters:
+  /// - [text]: The input text to check.
+  /// - [decimal]: If `true`, allows decimal numbers. Defaults to `false`.
+  ///
+  /// ### Returns:
+  /// - `true` if the text is numeric, otherwise `false`.
+  static bool isNumeric(String text, {bool decimal = false}) {
+    try {
+      text = toEnglishNumbers(text);
+      final integerRegex = RegExp(r'^[0-9۰-۹]+$');
+      final decimalRegex = RegExp(r'^[0-9۰-۹]+([.,٫][0-9۰-۹]+)?$');
+
+      return decimal
+          ? decimalRegex.hasMatch(text)
+          : integerRegex.hasMatch(text);
+    } catch (e) {
+      return false;
+    }
+  }
 }
 
 const List<String> _ones = [
