@@ -34,6 +34,11 @@
 - Validate passwords with customizable parameters
 - Half-space handling
 
+#### 📅 Date utilities:
+
+- Convert Gregorian dates to Jalali (Persian)
+- Convert Jalali (Persian) dates to Gregorian
+
 #### 🌏 National utilities:
 
 - Validate an Iranian National ID
@@ -68,7 +73,7 @@ To use this package, add it to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  pars_validator: ^0.7.0
+  pars_validator: ^0.7.1
 ```
 
 Then, run the following command to fetch the package:
@@ -137,6 +142,15 @@ bool isValid = General.isPasswordValid(
 String cleaned = General.removeHalfSpaces("سلام‌علیکم"); // "سلامعلیکم"
 String formatted = General.replaceSpacesWithHalfSpaces("سلام علیکم"); // "سلام‌علیکم"
 String normalized = General.replaceHalfSpacesWithSpaces("سلام‌علیکم"); // "سلام علیکم"
+```
+
+### 📅 Date utilities
+```dart
+// Convert Gregorian dates to Jalali (Persian)
+String jalali = PersianDate.toJalali(2025, 10, 20, twoDigits: true); // "1404/07/28"
+
+// Convert Jalali (Persian) dates to Gregorian
+String gregorian = PersianDate.toGregorian(1404, 7, 28); // "2025/10/20"
 ```
 
 ### 🌏 National utilities

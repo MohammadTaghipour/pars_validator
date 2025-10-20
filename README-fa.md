@@ -32,6 +32,10 @@
 - اعتبارسنجی پسوردها با پارامترهای قابل تنظیم
 - مدیریت نیم‌فاصله ها
 
+#### 📅 توابع تاریخ و تقویم:
+
+- تبدیل تاریخ میلادی به شمسی
+- تبدیل تاریخ شمسی به میلادی
   
 #### 🌏 توابع ملی
 - اعتبارسنجی کد ملی ایرانی
@@ -66,7 +70,7 @@
 
 ```yaml
 dependencies:
-  pars_validator: ^0.7.0
+  pars_validator: ^0.7.1
 ```
 
 سپس، دستور زیر را برای دریافت بسته اجرا کنید:
@@ -135,6 +139,15 @@ bool isValid = General.isPasswordValid(
 String cleaned = General.removeHalfSpaces("سلام‌علیکم"); // "سلامعلیکم"
 String formatted = General.replaceSpacesWithHalfSpaces("سلام علیکم"); // "سلام‌علیکم"
 String normalized = General.replaceHalfSpacesWithSpaces("سلام‌علیکم"); // "سلام علیکم"
+```
+
+### 📅 توابع تاریخ و تقویم
+```dart
+// Convert Gregorian dates to Jalali (Persian)
+String jalali = PersianDate.toJalali(2025, 10, 20, twoDigits: true); // "1404/07/28"
+
+// Convert Jalali (Persian) dates to Gregorian
+String gregorian = PersianDate.toGregorian(1404, 7, 28); // "2025/10/20"
 ```
 
 ### 🌏 توابع ملی

@@ -1,10 +1,10 @@
-# 0.7.0
+# 0.7.1
 
 Converts between Gregorian and Jalali (Persian) dates.
 
 - Methods:
-  - toJalali(y, m, d, twoDigits, separator) → Gregorian → Jalali
-  - toGregorian(y, m, d, twoDigits, separator) → Jalali → Gregorian  
+  - PersianDate.toJalali(y, m, d, twoDigits, separator) → Gregorian → Jalali
+  - PersianDate.toGregorian(y, m, d, twoDigits, separator) → Jalali → Gregorian  
 - Handles leap years, month boundaries, and validates inputs.
 - Pure Dart, no dependencies, suitable for Flutter and Dart projects.
 
