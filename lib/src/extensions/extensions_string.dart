@@ -457,8 +457,7 @@ extension StringValidation on String {
   /// );
   /// print(isValid); // true
   /// ```
-  bool isPasswordValid(
-    String password, {
+  bool isPasswordValid({
     bool uppercaseRequired = true,
     bool lowercaseRequired = true,
     bool digitsRequired = true,
